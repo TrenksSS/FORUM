@@ -6,7 +6,7 @@ use projetoForum;
 create table users(
     id_user integer  auto_increment not null primary key,
     nome_user varchar(50) not null,
-    nickname varchar(50) not null,
+    nickname varchar(50) not null unique,
     data_nasci date not null,
     senha varchar(20) not null
 );
@@ -29,11 +29,11 @@ insert into users values(default,'Juliana', 'jujubinha', '2002-11-10', 'plocploc
 insert into comentarios values(default, 1,"OPA",curDate(),"Test");
 insert into adms values(default,'Douglas','ADM');
 
--- create view vw_coment as
--- select c.id_com, u.id_user, c.comentario,c.data_coment c.tipo_categoria from users u
--- inner join comentarios c on  c.id_user = u.id_user;
+create view vw_coment as
+select c.id_com, u.id_user,u.nickname , c.comentario,c.data_coment, c.tipo_categoria from users u
+inner join comentarios c on  c.id_user = u.id_user;
 
 select * from users;
 select * from adms;
 select * from comentarios; 
--- select * from vw_coment;
+select * from vw_coment;
