@@ -4,6 +4,8 @@ const router = express.Router();
 const RotaUsers = require("../controllers/usersController");
 const RotaAdms = require("../controllers/admsController");
 const RotaComentarios = require("../controllers/comentsController");
+const RotaRespostas = require("../controllers/respostasController");
+
 
 
 router.post("/users", RotaUsers.criarUser);
@@ -18,9 +20,12 @@ router.delete("/adms", RotaAdms.excluirAdm);
 
 router.post("/comentarios", RotaComentarios.criarComent);
 router.get("/vw_coment", RotaComentarios.listarComent);
-router.get("/vw_coment/id", RotaComentarios.listarId);
+router.get("/vw_coment/id", RotaComentarios.listarIdComent);
 router.delete("/comentarios", RotaComentarios.excluirComent);
 
-
+router.post("/respostas", RotaRespostas.criarResp);
+router.get("/respostas", RotaRespostas.listarResps);
+router.get("/respostas/id", RotaRespostas.listarRespId);
+router.delete("/respostas", RotaRespostas.excluirResp);
 
 module.exports = router;
