@@ -1,8 +1,8 @@
-const Coment = require('../models/comentarios');
+const Resp = require('../models/respostas');
 const conDB = require('../models/bcdDAO');
 
-const criarComent = (req, res) => {
-    conDB.query(Coment.toCreateComent(req.body), (err, result) => {
+const criarResp = (req, res) => {
+    conDB.query(Resp.toCreateResp(req.body), (err, result) => {
         if (err == null)
             res.status(201).end();
         else
@@ -13,8 +13,8 @@ const criarComent = (req, res) => {
     });
 }
 
-const listarComent = (req, res) => {
-    conDB.query(Coment.toReadAll(), (err, result) => {
+const listarResps = (req, res) => {
+    conDB.query(Resp.toReadAll(), (err, result) => {
         if (err == null)
             res.json(result).end();
         else
@@ -22,8 +22,8 @@ const listarComent = (req, res) => {
     });
 }
 
-const listarIdComent = (req, res) => {
-    conDB.query(Coment.toReadIdComent(req.body), (err, result) => {
+const listarRespId = (req, res) => {
+    conDB.query(Resp.toReadRespId(req.body), (err, result) => {
         if (err == null)
             if (result.length > 0)
                 res.json(result).end();
@@ -34,8 +34,8 @@ const listarIdComent = (req, res) => {
     });
 }
 
-const excluirComent = (req, res) => {
-    conDB.query(Coment.toDeleteComent(req.body), (err, result) => {
+const excluirResp = (req, res) => {
+    conDB.query(Resp.toDeleteResp(req.body), (err, result) => {
         if (err == null)
             if (result.affectedRows > 0)
                 res.status(204).end();
@@ -47,8 +47,8 @@ const excluirComent = (req, res) => {
 }
 
 module.exports = {
-    criarComent,
-    excluirComent,
-    listarComent,
-    listarIdComent
+    criarResp,
+    excluirResp,
+    listarResps,
+    listarRespId
 }
