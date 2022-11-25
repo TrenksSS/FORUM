@@ -64,6 +64,7 @@ main {
 }
 
 .modal-login {
+  
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -81,7 +82,35 @@ main {
   margin-top: 4vh;
   width: 80px;
 }
+.modal-cadastro img {
+  margin-top: 4vh;
+  width: 80px;
+}
 
+.modal-cadastro{
+  position: relative;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  animation: 1s;
+  width: 25vw;
+  height: 60vh;
+  background-color: rgb(51, 65, 85);
+  color: rgb(255, 255, 255);
+  border-radius: 10px;
+  box-shadow: rgb(140, 145, 192) 0px 3px 8px;
+  font-size: 20px;
+}
+.modal-cadastro:hover{
+  transition: 0.4s;
+  box-shadow: rgb(140, 145, 192) 0px 6px 16px;
+}
+#voltar-login{
+  position: absolute;
+  left: 1vw;
+  bottom: 55vh;
+  width: 30px;
+}
 .inputs {
   margin-top: 1vh;
   width: 15vw;
@@ -214,4 +243,10 @@ main {
   transition: 0.3s;
   width: 9.5vw;
   height: 5.5vh;
+}
+#f-cad{
+  position: absolute;
+  font-size: 15px;
+  cursor: pointer;
+  bottom: 21vh;
 }
