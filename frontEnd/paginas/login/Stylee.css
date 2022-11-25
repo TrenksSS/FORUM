@@ -22,9 +22,8 @@ main {
 }
 
 .cont-1 {
-  margin-top: 10vh;
+  margin-top: 20vh;
   align-items: center;
-  /* justify-content: center; */
   display: flex;
   flex-direction: column;
   width: 50vw;
@@ -62,7 +61,6 @@ main {
   justify-content: center;
   width: 50vw;
   height: 100vh;
-
 }
 
 .modal-login {
@@ -80,6 +78,7 @@ main {
 }
 
 .modal-login img {
+  margin-top: 4vh;
   width: 80px;
 }
 
@@ -99,7 +98,7 @@ main {
   font-size: 20px;
 }
 
-.modal-login input:hover {
+.inputs:hover {
 
   transition: 1s;
   background: rgba(255, 255, 255, 0.692);
@@ -116,6 +115,10 @@ main {
   font-size: 20px;
 
 }
+.titulo-2{
+  margin-top: 3vh;
+  font-size: 40px;
+}
 
 .modal-login:hover {
   transition: 0.4s;
@@ -131,35 +134,22 @@ main {
 
 #olho {
   margin: 0;
-  margin-left: -25px;
+  margin-left: -35px;
   margin-bottom: -5px;
   width: 20px;
   cursor: pointer;
 }
 
-
-#btn {
-  width: calc(4 * var(--width));
-  height: calc(4 * var(--height));
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  height: 100vh;
-}
-
 #btn{
+  font-size: 20px;
+  width: 9vw;
+  height: 5vh;
+  margin-top: 10vh;
   padding: 0.6em 2em;
   border: none;
   outline: none;
   color: rgb(255, 255, 255);
-  background: #111;
+  background: rgb(81, 144, 192);
   cursor: pointer;
   position: relative;
   z-index: 0;
@@ -215,8 +205,13 @@ main {
   position: absolute;
   width: 100%;
   height: 100%;
-  background: #222;
+  background: rgb(51, 65, 85);
   left: 0;
   top: 0;
   border-radius: 10px;
+}
+#btn:hover{
+  transition: 0.3s;
+  width: 9.5vw;
+  height: 5.5vh;
 }
