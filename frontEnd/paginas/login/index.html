@@ -13,10 +13,10 @@
 <body>
     <main>
         <div class="cont-1">
-         <div class="sub-cont">
-            <img src="../../../assets/motor-turbo.png" alt="imagem tema turbo">
-            <h1 id="titulo">Speed</h1>
-         </div>
+            <div class="sub-cont">
+                <img src="../../../assets/motor-turbo.png" alt="imagem tema turbo">
+                <h1 id="titulo">hot Wilson</h1>
+            </div>
             <p id="subTitulo">Bem vindo pessoa, faça login para entra!</p>
         </div>
         <div class="cont-2">
@@ -24,42 +24,53 @@
             <div class="modal-login">
                 <img id="imagem-login" src="../../../assets/ic-turbo.png" alt="">
                 <h2 class="titulo-2">LOGIN</h2>
-                <p>Email</p>
+                <p>Nome de Usuario</p>
                 <input class="inputs" id="email-login-user" type="text">
                 <p>Senha</p>
                 <div id="senha">
-                    <input class="inputs" id="senha-login-user" type="password">
-                    <img id="olho" onclick="ver()" src="../../../assets/olho.png" alt="">
+                    <input class="inputs senha" id="senha-login-user" type="password">
+                    <img class="olho" onclick="ver()" src="../../../assets/olho.png" alt="">
                 </div>
-               <div id="cont-btn">
-                  <button id="btn">Entrar</button>
-                  
-               </div>
-               <p id="f-cad" onclick="cadastrar()" >Novo aqui? faça seu cadastro</p>
+                <div id="cont-btn">
+                    <button id="btn" onclick="login()">Entrar</button>
+
+                </div>
+                <p id="f-cad" onclick="cadastrar()">Novo aqui? faça seu cadastro</p>
             </div>
 
             <div class="modal-cadastro">
-                <img id="voltar-login" onclick="voltaLog()" src="../../../assets/botao-voltar (1).png" alt="seta voltar para login">
-                <img class="imagem-login" src="../../../assets/ic-turbo.png" alt="">
-                <h2 class="titulo-2">CADASTRAR</h2>
-                <p>Email</p>
-                <input class="inputs" id="email-login-user" type="text">
-                <p>Senha</p>
-                <div id="senha">
-                    <input class="inputs" id="senha-login-user" type="password">
-                    <img id="olho" onclick="ver()" src="../../../assets/olho.png" alt="">
+                <img id="voltar-login" onclick="voltaLog()" src="../../../assets/botao-voltar (1).png"
+                    alt="seta voltar para login">
+                <div id="titulo-cadastro">
+                    <img class="imagem-login" src="../../../assets/ic-turbo.png" alt="">
+                    <h2 class="titulo-2">CADASTRAR</h2>
                 </div>
-               <div id="cont-btn">
-                  <button id="btn">Entrar</button>
-                  
-               </div>
+                <p>Nome completo</p>
+                <input class="inputs" id="nome-cadastro-user" type="text">
+                <p>Nome de Usuario</p>
+                <input class="inputs" id="email-cadastro-user" type="text">
+                <p>Senha</p>
+                <div id="senha2">
+                    <input class="inputs senha" id="senha-cadastro-user" type="password">
+                    <img class="olho" onclick="ver()" src="../../../assets/olho.png" alt="">
+                </div>
+                <p>Confirmar Senha</p>
+                <div id="senha2-confirma">
+                    <input class="inputs senha" id="senha-cadastro-user-confirm" type="password">
+                    <img class="olho" onclick="ver()" src="../../../assets/olho.png" alt="">
+                </div>
+                <div id="cont-btn">
+                    <button id="btn">Entrar</button>
+
+                </div>
             </div>
 
-            </div>
+        </div>
 
         </div>
     </main>
     <p id="credito">© From Carlos and Gleidison</p>
 </body>
 <script src="script.js"></script>
+
 </html>

@@ -1,5 +1,5 @@
-var olho = document.querySelector("#senha-login-user")
-var img = document.querySelector("#olho")
+var olho = document.querySelector(".senha")
+var img = document.querySelector(".olho")
 var cad = document.querySelector(".modal-cadastro")
 var log = document.querySelector(".modal-login")
 function ver(){
@@ -19,4 +19,8 @@ function ver(){
  function voltaLog() {
     log.style = "display:flex"
     cad.style = "display:none"
+ }
+
+ function login(){
+    window.location.href= "../home/index.html"
  }
