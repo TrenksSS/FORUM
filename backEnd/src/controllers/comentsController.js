@@ -1,5 +1,5 @@
 const Coment = require('../models/comentarios');
-const conDB = require('../models/bcdDAO');
+const conDB = require('../dao/bcdDAO');
 
 const criarComent = (req, res) => {
     conDB.query(Coment.toCreateComent(req.body), (err, result) => {

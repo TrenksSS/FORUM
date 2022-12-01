@@ -1,5 +1,5 @@
 const ADM = require('../models/adms');
-const conDB = require('../models/bcdDAO');
+const conDB = require('../dao/bcdDAO');
 
 const criarAdm = (req, res) => {
     conDB.query(ADM.toCreateAdm(req.body), (err, result) => {
