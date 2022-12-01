@@ -3,6 +3,11 @@
   --background-color: #000000;
   --color: #000000;
   --light-theme: #ffffff;
+  --cor1 :rgb(48, 48, 48);
+  --cor2 :rgb(51, 65, 85);
+  --cor3 :rgb(140, 145, 192);
+  --cor4 :;
+  --cor5 :;
 }
 
 * {
@@ -12,7 +17,7 @@
 
 body {
   font-family: 'Bakbak One', cursive;
-  background-color: rgb(48, 48, 48);
+  background-color: var(--cor1);
   width: 100vw;
   height: 100vh;
 }
@@ -71,15 +76,20 @@ main {
   animation: 1s;
   width: 25vw;
   height: 60vh;
-  background-color: rgb(51, 65, 85);
+  background-color: var(--cor2);
   color: rgb(255, 255, 255);
   border-radius: 10px;
-  box-shadow: rgb(140, 145, 192) 0px 3px 8px;
+  box-shadow: var(--cor3) 0px 3px 8px;
   font-size: 20px;
 }
 #imagem-login{
   margin-top: 4vh;
   width: 60px;
+}
+#imagem-cad{
+  margin-top: 2vh;
+  width: 4vw;
+  height: 8vh;
 }
 .modal-cadastro{
   position: relative;
@@ -89,15 +99,15 @@ main {
   animation: 1s;
   width: 25vw;
   height: 60vh;
-  background-color: rgb(51, 65, 85);
+  background-color: var(--cor2);
   color: rgb(255, 255, 255);
   border-radius: 10px;
-  box-shadow: rgb(140, 145, 192) 0px 3px 8px;
+  box-shadow: var(--cor3) 0px 3px 8px;
   font-size: 20px;
 }
 .modal-cadastro:hover{
   transition: 0.4s;
-  box-shadow: rgb(140, 145, 192) 0px 6px 16px;
+  box-shadow: var(--cor3) 0px 6px 16px;
 }
 #titulo-cadastro{
   display: flex;
@@ -148,7 +158,7 @@ main {
 
 .modal-login:hover {
   transition: 0.4s;
-  box-shadow: rgb(140, 145, 192) 0px 6px 16px;
+  box-shadow: var(--cor3) 0px 6px 16px;
 }
 
 #credito {

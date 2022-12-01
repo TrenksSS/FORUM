@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css2?family=Bakbak+One&family=Hanalei+Fill&display=swap');
+
+:root {
+    --background-color: #000000;
+    --color: #000000;
+    --light-theme: #ffffff;
+    --cor1: rgb(48, 48, 48);
+    --cor2: rgb(51, 65, 85);
+    --cor3: rgb(140, 145, 192);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Bakbak One', cursive;
+}
+
+header {
+    position: fixed;
+    width: 100vw;
+    height: 8vh;
+    background-color: var(--cor1);
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+
+.cab-info {
+    margin: 2vh;
+    display: flex;
+    align-items: center;
+    font-family: 'Hanalei Fill', cursive;
+    position: absolute;
+    color: white;
+    
+}
+
+#img-cab {
+    width: 50px;
+}
+
+.user-info {
+    position: absolute;
+    margin: 2vh;
+    left: 94vw;
+    display: flex;
+    align-items: center;
+}
+
+#user-nick {
+    right: 4vw;
+    position: absolute;
+    color: white;
+}
+
+#user-img {
+    width: 50px;
+}
+
+nav {}
+
+.modal-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    margin-top: 8vh;
+    position: fixed;
+    background-color: var(--cor1);
+    width: 15vw;
+    height: 92vh;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;   
+}
+.categoria
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.cont{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    left: 15vw;
+    top: 8vh;
+    display: flex;
+    align-items: center;
+    width: 85vw;
+}
+.post{
+    margin-top: 20px;
+    display: flex;
+    width: 800px;
+    height: 500px;
+    
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+}
+
+.modal {
+    overflow: hidden;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.modalFull {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+}
+
+.info{
+    display: none;
+    position: fixed;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.208);
+    transition: 5s;
+}
+
+.teste{
+    display: block;
+    opacity: ;
+}
+
+.mor{
+    width: 60vw;
+    height: 80vh;
+    background-color: white;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+}
+#x{
+    width: 20px;
+    margin: 10px;
+}
+
+
+
+
+
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: var(--cor1);
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+} 
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
