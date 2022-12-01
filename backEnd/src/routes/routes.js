@@ -10,7 +10,7 @@ const RotaRespostas = require("../controllers/respostasController");
 
 router.post("/users", RotaUsers.criarUser);
 router.get("/users", RotaUsers.listarUsers);
-router.get("/users/nick", RotaUsers.listarNickname);
+router.get("/users/nickname", RotaUsers.listarNickname);
 router.delete("/users", RotaUsers.excluirUser);
 
 router.post("/adms", RotaAdms.criarAdm);

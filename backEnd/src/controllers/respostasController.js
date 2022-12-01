@@ -1,5 +1,5 @@
 const Resp = require('../models/respostas');
-const conDB = require('../models/bcdDAO');
+const conDB = require('../dao/bcdDAO');
 
 const criarResp = (req, res) => {
     conDB.query(Resp.toCreateResp(req.body), (err, result) => {
