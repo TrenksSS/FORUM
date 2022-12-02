@@ -77,11 +77,17 @@ nav {}
     z-index: 2;
 }
 
-.categoria main {
+.categoria{
+    margin-top: 5px;
+    width: 250px;
+    height: 30px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    font-size: 20px;
+    border-radius: 5px;
+    background-color: var(--cor2);
 
 }
 
@@ -109,6 +115,14 @@ nav {}
     transition: 0.6s;
     box-shadow: rgba(0, 0, 0, 0.411) 0px 2px 4px 0px, rgba(0, 0, 0, 0.26) 0px 2px 16px 0px;
 }
+/* ------------------------------------------------------------------- */
+
+#Npost{
+    width: 900px;
+    hei
+}
+
+
 
 /* ---------------------------------------------------------------------- */
 
