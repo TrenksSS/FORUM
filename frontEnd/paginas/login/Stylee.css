@@ -87,9 +87,11 @@ main {
   width: 60px;
 }
 #imagem-cad{
+  margin-right: 10px;
   margin-top: 2vh;
-  width: 4vw;
-  height: 8vh;
+  width: 40px;
+  height: 40px;
+  
 }
 .modal-cadastro{
   position: relative;
@@ -111,12 +113,15 @@ main {
 }
 #titulo-cadastro{
   display: flex;
+  align-items: center;
+  margin-bottom: 20px;
 }
 #voltar-login{
   position: absolute;
   left: 1vw;
   bottom: 55vh;
   width: 30px;
+  cursor: pointer;
 }
 .inputs {
   margin-top: 1vh;
