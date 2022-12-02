@@ -10,6 +10,9 @@ const toReadNickname = (model) => {
     return `SELECT * FROM users  WHERE nickname =  '${model.nickname}'`;
 }
 
+const login = (model) => {
+    return `SELECT * FROM vw_status`;
+}
 
 const toDeleteUsers = (model) => {
     return `DELETE FROM users WHERE id = ${model.id}`;
@@ -33,5 +36,6 @@ module.exports = {
     toReadNickname,   
     toDeleteUsers,
     toUpdateUsers,
-    blobToAscii
+    blobToAscii,
+    login
 }
