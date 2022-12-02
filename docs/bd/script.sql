@@ -9,6 +9,7 @@ create table users(
     nickname varchar(50) not null unique,
     data_nasci date not null,
     senha varchar(20) not null,
+    role_stats varchar(20) not null,
     avatar mediumblob
 );
 
@@ -44,23 +45,27 @@ create table respostas(
     foreign key (id_users) references users(id) on delete cascade
 );
 
-create table adms(
-    id_adm integer  auto_increment not null primary key,
-    nome_adm varchar(50) not null,
-    senha_adm varchar(20) not null
-);
 
-insert into users values(default,'Juliana', 'jujubinha', '2002-11-10', 'plocploc', null);
+
+insert into users values(default,'Juliana', 'jujubinha', '2002-11-10', 'plocploc','User',null);
+insert into users values(default,'O.O', 'OOOOOOOOOOOOOO', '2002-11-10', '1234','admin',null);
+
 insert into comentarios values(default, 1,"OPA",curDate(),"Test");
-insert into adms values(default,'Douglas','ADM');
 insert into respostas values(default,1,1,"TESTE", curDate());
+
+-- create view vw_adm as 
+-- select 
 
 create view vw_coment as
 select c.id as id_coment, u.id as id_user,u.nickname , c.comentario,c.data_coment, c.tipo_categoria from users u
 inner join comentarios c on  c.id_user = u.id;
 
+create view vw_status as
+select  u.id as id_user, u.nickname, u.role_stats from users u ;
+
 select * from users;
-select * from adms;
 select * from comentarios; 
 select * from respostas;
 select * from vw_coment;
+select * from vw_status;
+
