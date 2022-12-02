@@ -24,6 +24,7 @@ header {
     height: 8vh;
     background-color: var(--cor1);
     box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    z-index: 2;
 }
 
 .cab-info {
@@ -33,11 +34,11 @@ header {
     font-family: 'Hanalei Fill', cursive;
     position: absolute;
     color: white;
-    
+
 }
 
 #img-cab {
-    width: 50px;
+    width: 40px;
 }
 
 .user-info {
@@ -55,7 +56,7 @@ header {
 }
 
 #user-img {
-    width: 50px;
+    width: 40px;
 }
 
 nav {}
@@ -70,18 +71,19 @@ nav {}
     background-color: var(--cor1);
     width: 15vw;
     height: 92vh;
-    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;   
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    z-index: 2;
 }
-.categoria
-main{
+
+.categoria main {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    
+
 }
 
-.cont{
+.cont {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -91,14 +93,105 @@ main{
     align-items: center;
     width: 85vw;
 }
-.post{
+
+.post {
     margin-top: 20px;
     display: flex;
+    flex-direction: column;
     width: 800px;
-    height: 500px;
-    
+    padding: 30px;
+
     box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
 }
+.post:hover{
+    transition: 0.6s;
+    box-shadow: rgba(0, 0, 0, 0.411) 0px 2px 4px 0px, rgba(0, 0, 0, 0.26) 0px 2px 16px 0px;
+}
+
+/* ---------------------------------------------------------------------- */
+
+#post-info-user {
+    display: flex;
+    align-items: center;
+}
+
+#post-user-img {
+    width: 35px;
+    margin-right: 2%;
+}
+
+#nick-user {}
+
+#time {
+    margin-left: 70%;
+}
+
+#imagem-post {
+    border-top: 1px solid;
+
+    margin: 20px;
+}
+
+#coment {
+    display: flex;
+    width: 800px;
+    margin: 20px;
+}
+
+
+
+#img-p {
+    margin-top: 3%;
+    max-width: 500px;
+}
+
+#comentario-user {
+    width: 700px;
+}
+
+#plus {
+    display: flex;
+    border-top: 1px solid;
+    justify-content: space-between;
+}
+
+#info-like {
+    margin: 20px;
+    display: flex;
+    align-items: center; 
+}
+
+#like {
+    width: 30px;
+}
+#info-resp{
+    margin: 20px;
+    display: flex;
+    align-items: center; 
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .modal {
     overflow: hidden;
@@ -113,10 +206,9 @@ main{
     height: 100vh;
 }
 
-.info{
+.info {
     display: none;
     position: fixed;
-    opacity: 0;
     top: 0;
     left: 0;
     width: 100vw;
@@ -127,18 +219,14 @@ main{
     transition: 5s;
 }
 
-.teste{
-    display: block;
-    opacity: ;
-}
-
-.mor{
+.mor {
     width: 60vw;
     height: 80vh;
     background-color: white;
     box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
 }
-#x{
+
+#x {
     width: 20px;
     margin: 10px;
 }
@@ -147,21 +235,33 @@ main{
 
 
 
+
+
+
+
+
+
+
+
+
+
+
 ::-webkit-scrollbar {
     width: 10px;
-  }
-  
-  /* Track */
-  ::-webkit-scrollbar-track {
+}
+
+/* Track */
+::-webkit-scrollbar-track {
     background: var(--cor1);
-  }
-  
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
     background: #888;
     border-radius: 10px;
-} 
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
     background: #555;
-  }
+}

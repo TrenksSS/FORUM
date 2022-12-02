@@ -1,13 +1,19 @@
 var post = document.querySelector(".info")
 var x = document.querySelector("#x")
+var cora = document.querySelector("#like")
 
 function abrir() {
-    post.classList.add("teste")
-    //  post.style = "display:flex"
-    //  post.style = "opacity:1"
+     post.style = "display:flex"
 }
 function fechar() {
-    console.log("ok")
  post.style = "display:none"
-//  post.style = "opacity:0"
+}
+
+function like() {
+    console.log("ok")
+    if(cora.src == "../../../assets/coracaoN.png"){
+        cora.src = "../../../assets/coracao.png"
+    }else{
+        cora.src = "../../../assets/coracaoN.png"
+    }
 }
