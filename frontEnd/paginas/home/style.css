@@ -7,6 +7,7 @@
     --cor1: rgb(48, 48, 48);
     --cor2: rgb(51, 65, 85);
     --cor3: rgb(140, 145, 192);
+    --cor4: rgba(0, 0, 0, 0.555);
 }
 
 * {
@@ -80,13 +81,13 @@ nav {}
 .categoria{
     margin-top: 5px;
     width: 250px;
-    height: 30px;
+    height: 35px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     font-size: 20px;
-    border-radius: 5px;
+    border-radius: 50px;
     background-color: var(--cor2);
 
 }
@@ -108,7 +109,7 @@ nav {}
     flex-direction: column;
     width: 800px;
     padding: 30px;
-
+    border-radius: 2px;
     box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
 }
 .post:hover{
@@ -117,10 +118,45 @@ nav {}
 }
 /* ------------------------------------------------------------------- */
 
-#Npost{
-    width: 900px;
-    hei
+
+.novo-post-cont{
+    display: none;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-color:var(--cor4);
+    z-index: 2;
+
 }
+#Npost{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    left: 28vw;
+    bottom: 10vh;
+    position: absolute;
+    width: 50vw;
+    height: 80vh;
+    border-radius: 10px;
+    background-color: white;
+}
+#novo_post{
+    width: 40vw;
+    height: 20vh;
+    font-size: 20px;
+}
+#postar{
+    margin: 20px;
+    width: 100px;
+    height: 40px;
+}
+#cancel{
+    margin: 20px;
+    width: 100px;
+    height: 40px;
+}
+
 
 
 

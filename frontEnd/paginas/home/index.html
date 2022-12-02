@@ -21,9 +21,12 @@
             <img id="user-img" src="../../../assets/user.png" alt="">
         </div>
         <div class="cab-post">
-            <button onmouseover="newpost()" onmouseout="newp()" id="novo-post">+</button>
+            <button onmouseover="newpost()" onmouseout="newp()" onclick="Np()" id="novo-post">+</button>
         </div>
     </header>
+
+
+
     <nav>
         <div class="modal-nav">
             <div class="categoria">
@@ -33,10 +36,25 @@
                 <p>Carro </p>
             </div>
         </div>
+        <div class="novo-post-cont">
+            <div id="Npost">
+                <h2>Novo post</h2>
+                <p>Compartilhe coma comunidade oque está pensando</p>
+                <textarea name="" id="novo_post" cols="300" rows="10"></textarea>
+                <div class="btns">
+                    <button id="postar" ">POSTAR</button>
+                <button id="cancel" onclick="ncancel()">CANCELAR</button>
+                </div>
+            </div>
+        </div>
+        </div>
     </nav>
+
+
+
     <main>
         <div class="cont">
-            <div class="post" onclick="abrir()">
+            <div class="post">
                 <div id="post-info-user">
                     <img id="post-user-img" src="../../../assets/user.png" alt="">
                     <p id="nick-user">Nick Name</p>
@@ -61,18 +79,8 @@
                     </div>
                 </div>
             </div>
-            <div id="Npost">
-                <p></p>
-            </div>
-        </div>
+
     </main>
-
-    <div class="info">
-        <div class="mor">
-            <img id="x" src="../../../assets/x.png" onclick="fechar()" alt="">
-        </div>
-    </div>
-
 </body>
 <script src="script.js"></script>
 
