@@ -1,5 +1,5 @@
 const toCreatePost = (model) => {
-    return `INSERT INTO post VALUES (DEFAULT, '${model.id_user}','${model.text_post}','${model.data_post}','${model.tipo_post}','${model.img}')`;
+    return `INSERT INTO post VALUES (DEFAULT, '${model.id_user}','${model.titulo_post}',curDate(),'${model.tipo_post}','${model.img}')`;
 }
 
 const toReadAllPost = () => {
@@ -16,7 +16,7 @@ const toDeletePost = (model) => {
 }
 
 const toUpdatePost = (model)=>{
-    return `UPDATE post SET id_user = '${model.id_user}',text_post = '${model.text_post}',data_post = '${model.data_post}', tipo_post = '${model.tipo_post}', img = '${model.img}' WHERE id = ${model.id}`;
+    return `UPDATE post SET id_user = '${model.id_user}',titulo_post = '${model.titulo_post}', tipo_post = '${model.tipo_post}', img = '${model.img}' WHERE id = ${model.id}`;
     }
 
 const blobToAscii = (dados) => {

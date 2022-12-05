@@ -55,7 +55,7 @@ const listarUsers = (req, res) => {
 
 
 const listarNickname = (req, res) => {
-    conDB.query(User.toReadNickname(), (err, result) => {
+    conDB.query(User.toReadNickname(req.body), (err, result) => {
         if (err == null) {
             if (result.length > 0)
                 res.json(User.blobToAscii(result)).end();

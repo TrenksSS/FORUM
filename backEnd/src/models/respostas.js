@@ -16,7 +16,7 @@ const toDeleteResp = (model) => {
 }
 
 const toUpdateResp = (model)=>{
-    return `UPDATE respostas SET id_coment = '${model.id_coment}', id_users = '${model.id_users}', comentario = '${model.comentario}',data_coment = '${model.data_coment}' WHERE id_resp = ${model.id_resp}`;
+    return `UPDATE respostas SET   comentario = '${model.comentario}' WHERE id_resp = ${model.id_resp}`;
     }
 
 module.exports = {

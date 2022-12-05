@@ -1,5 +1,5 @@
 const toCreateUsers = (model) => {
-    return `INSERT INTO users VALUES (DEFAULT, '${model.nome_user}','${model.nickname}','${model.data_nasci}','${model.senha}','${model.avatar}')`;
+    return `INSERT INTO users VALUES (DEFAULT, '${model.nome_user}','${model.nickname}','${model.data_nasci}','${model.senha}','${model.role_stats}','${model.avatar}')`;
 }
 
 const toReadAllUsers = () => {

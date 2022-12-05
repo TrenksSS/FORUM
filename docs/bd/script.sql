@@ -49,7 +49,7 @@ create table respostas(
 insert into users values(default,'Juliana', 'jujubinha', '2002-11-10', 'plocploc','User',null);
 insert into users values(default,'O.O', 'OOOOOOOOOOOOOO', '2002-11-10', '1234','admin',null);
 
-insert into post values(default,1, 'OOOOOOOO', curDate(), 'Carro',null);
+insert into post values(default,1, 'Esse carro é PIKA ', curDate(), 'Carro','https://pbs.twimg.com/media/DCmgkOdXUAAsO_N?format=jpg&name=360x360');
 
 
 insert into comentarios values(default, 1,1,"OPA",curDate(),"Test");
