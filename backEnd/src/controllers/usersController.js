@@ -17,23 +17,23 @@ const criarUser = (req, res) => {
 }
 
 const login = (req,res) => {
-        conDB.query(User.login(), (err, result) => {
+        conDB.query(User.login(req.body), (err, result) => {
             if (err == null) {
                 if (result.length > 0){
-                    res.json(User.blobToAscii(result)).end();
+                    res.json(result).end();
                 }
                 else
                     res.status(404).end();
             }
-            jwt.sign(result, process.env.KEY,{expiresIn: '1m'}, function(err, token) {
-                if(err == null){
-                    data["token"] = token;
-                    res.status(200).json(data).end();
-                }else{
-                    res.status(404).json(err).end();
+            // jwt.sign(result, process.env.KEY,{expiresIn: '1m'}, function(err, token) {
+            //     if(err == null){
+            //         result["token"] = token;
+            //         res.status(200).json(result).end();
+            //     }else{
+            //         res.status(404).json(err).end();
         
-                }
-            });
+            //     }
+            // });
          
         });
     };
