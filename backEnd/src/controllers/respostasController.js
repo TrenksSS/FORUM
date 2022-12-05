@@ -46,9 +46,20 @@ const excluirResp = (req, res) => {
     });
 }
 
+const editarResp = (req, res) => {
+    conDB.query(Resp.toUpdateResp(req.body), (err, result) => {
+        if (err == null) {
+            res.status(200).json(req.body).end();
+        } else {
+            res.status(400).json(err).end();
+        }
+    });
+}
+
 module.exports = {
     criarResp,
     excluirResp,
     listarResps,
-    listarRespId
+    listarRespId,
+    editarResp
 }

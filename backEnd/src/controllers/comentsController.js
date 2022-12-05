@@ -46,9 +46,20 @@ const excluirComent = (req, res) => {
     });
 }
 
+const editarComent = (req, res) => {
+    conDB.query(Coment.toUpdateComent(req.body), (err, result) => {
+        if (err == null) {
+            res.status(200).json(req.body).end();
+        } else {
+            res.status(400).json(err).end();
+        }
+    });
+}
+
 module.exports = {
     criarComent,
     excluirComent,
     listarComent,
-    listarIdComent
+    listarIdComent,
+    editarComent
 }

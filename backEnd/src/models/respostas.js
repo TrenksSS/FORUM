@@ -15,9 +15,14 @@ const toDeleteResp = (model) => {
     return `DELETE FROM respostas WHERE id_resp = ${model.id_resp}`;
 }
 
+const toUpdateResp = (model)=>{
+    return `UPDATE respostas SET id_coment = '${model.id_coment}', id_users = '${model.id_users}', comentario = '${model.comentario}',data_coment = '${model.data_coment}' WHERE id_resp = ${model.id_resp}`;
+    }
+
 module.exports = {
     toCreateResp,
     toReadAll,
     toReadRespId,   
-    toDeleteResp
+    toDeleteResp,
+    toUpdateResp
 }

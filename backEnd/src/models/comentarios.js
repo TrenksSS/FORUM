@@ -15,9 +15,14 @@ const toDeleteComent = (model) => {
     return `DELETE FROM comentarios WHERE id_com = ${model.id_com}`;
 }
 
+const toUpdateComent = (model)=>{
+    return `UPDATE comentarios SET id_user = '${model.id_user}', comentario = '${model.comentario}', data_coment = '${model.data_coment}',tipo_categoria = '${model.tipo_categoria}' WHERE id = ${model.id}`;
+    }
+
 module.exports = {
     toCreateComent,
     toReadAll,
     toReadIdComent,   
-    toDeleteComent
+    toDeleteComent,
+    toUpdateComent
 }

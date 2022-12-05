@@ -55,16 +55,17 @@ const listarUsers = (req, res) => {
 
 
 const listarNickname = (req, res) => {
-    conDB.query(User.toReadNickname(req.body), (err, result) => {
-        if (err == null)
+    conDB.query(User.toReadNickname(), (err, result) => {
+        if (err == null) {
             if (result.length > 0)
-                res.json(result).end();
+                res.json(User.blobToAscii(result)).end();
             else
                 res.status(404).end();
-        else
-            res.status(500).end();
+        }
     });
 }
+
+
 
 const excluirUser = (req, res) => {
     conDB.query(User.toDeleteUsers(req.body), (err, result) => {

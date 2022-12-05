@@ -13,25 +13,24 @@ create table users(
     avatar mediumblob
 );
 
+create table post(
+    id integer  auto_increment not null primary key,
+    id_user integer not null,
+    titulo_post varchar(100) not null,
+    data_post date not null,
+    tipo_post varchar(50) not null,
+    img mediumblob,
+    foreign key (id_user) references users(id) on delete cascade
+);
 create table comentarios (
     id integer  auto_increment not null primary key,
+    id_post integer not null,
     id_user integer not null,
     comentario varchar(800) not null,
     data_coment date not null,
     tipo_categoria varchar(50) not null,
-    foreign key (id_user) references users(id) on delete cascade
-);
-
-create table post(
-    id integer  auto_increment not null primary key,
-    id_com integer not null,
-    id_user integer not null,
-    text_post varchar(50) not null,
-    data_post date not null,
-    tipo_post varchar(50) not null,
-    img mediumblob,
     foreign key (id_user) references users(id) on delete cascade,
-    foreign key (id_com) references comentarios(id) on delete cascade
+    foreign key (id_post) references post(id) on delete cascade
 
 );
 
@@ -50,7 +49,10 @@ create table respostas(
 insert into users values(default,'Juliana', 'jujubinha', '2002-11-10', 'plocploc','User',null);
 insert into users values(default,'O.O', 'OOOOOOOOOOOOOO', '2002-11-10', '1234','admin',null);
 
-insert into comentarios values(default, 1,"OPA",curDate(),"Test");
+insert into post values(default,1, 'OOOOOOOO', curDate(), 'Carro',null);
+
+
+insert into comentarios values(default, 1,1,"OPA",curDate(),"Test");
 insert into respostas values(default,1,1,"TESTE", curDate());
 
 -- create view vw_adm as 
@@ -64,6 +66,7 @@ create view vw_status as
 select  u.id as id_user, u.nickname, u.role_stats from users u ;
 
 select * from users;
+select * from post; 
 select * from comentarios; 
 select * from respostas;
 select * from vw_coment;
