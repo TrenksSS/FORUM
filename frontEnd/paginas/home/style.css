@@ -8,6 +8,8 @@
     --cor2: rgb(51, 65, 85);
     --cor3: rgb(140, 145, 192);
     --cor4: rgba(0, 0, 0, 0.555);
+    --cor5: rgb(104, 104, 104);
+
 }
 
 * {
@@ -176,6 +178,7 @@ nav {}
 
 #time {
     margin-left: 70%;
+    color: var(--cor5);
 }
 
 #imagem-post {
@@ -223,26 +226,34 @@ nav {}
     
 }
 
+/* -----------------------------------------respostas */
+.respostas{
+    border-top: 1px solid;  
+    display: none;
+    flex-direction: column;
+}
 
+#r-info{
+    display: flex;
+    align-items: center;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#r-user{
+    width: 35px;
+    margin: 10px;
+}
+#r-time{
+    margin-left: 28vw;
+    color: var(--cor5);
+}
+#resp{
+    
+}
+#c-resp{
+    width: 700px;
+    margin: 20px;
+}
+/* ------------------------------------------------------------- */
 
 
 .modal {

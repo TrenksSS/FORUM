@@ -3,6 +3,7 @@ var x = document.querySelector("#x")
 var cora = document.querySelector("#like")
 var np = document.querySelector("#novo-post")
 var novoPost = document.querySelector(".novo-post-cont")
+var resp = document.querySelector(".respostas")
 
 function like() {
     
@@ -30,4 +31,11 @@ function Np(){
 }
 function ncancel(){
     novoPost.style = "display:none"
+}
+function comentarios(){
+    if(resp.style.display == "none"){
+        resp.style.display = "flex"
+    }else{
+        resp.style.display = "none"
+    }
 }
