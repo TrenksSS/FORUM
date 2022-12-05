@@ -5,6 +5,30 @@ var np = document.querySelector("#novo-post")
 var novoPost = document.querySelector(".novo-post-cont")
 var resp = document.querySelector(".respostas")
 
+// ------------------variaveis dos hader-----------------
+var hnick = document.querySelector("#uner-nick")
+var himg = document.querySelector("#user-img")
+// -------------------------------------------------------
+
+// ------------------variaveis dos posts-----------------
+var post = document.querySelector(".post")
+var imgUser = document.querySelector("#post-info-user")
+var timePost = document.querySelector("#time")
+var nickPost = document.querySelector("#nick-user")
+var imgPost = document.querySelector("#img-p")
+var conteudoPost = document.querySelector("#comentario-user")
+var numeroLike = document.querySelector("#like-n")
+var numCom = document.querySelector("#resp-number")
+// -------------------------------------------------------
+
+// ------------------variaveis dos posts-----------------
+var contResp = document.querySelector(".respostas")
+var imgR = document.querySelector("#r-user")
+var nickR = document.querySelector("#r-nick")
+var timeR = document.querySelector("#r-time")
+var tresp = document.querySelector("#c-resp")
+// -------------------------------------------------------
+
 function like() {
     
     if (cora.src == "../../../assets/coracaoN.png") {
@@ -39,3 +63,8 @@ function comentarios(){
         resp.style.display = "none"
     }
 }
+
+const fatchForum = async (forum) => {
+    
+}
+ 
