@@ -43,9 +43,12 @@ function ver() {
         console.log("ok 2")
     }
 }
-function cadastrar() {
+function abrirCad(){
     log.style = "display:none"
     cad.style = "display:flex"
+}
+function cadastrar() {
+    
 
     let data = {}
 
@@ -91,8 +94,6 @@ function login() {
     window.location.href = "../home/index.html"
 }
 
-<<<<<<< HEAD
-=======
  function login(){
 
     const info = {
@@ -114,4 +115,3 @@ function login() {
         }
     })
 }
->>>>>>> e93c557cc69eae8831d2cda5d9982d7283643e66
