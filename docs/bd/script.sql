@@ -59,11 +59,12 @@ insert into respostas values(default,1,1,"TESTE", curDate());
 -- select 
 
 create view vw_coment as
-select c.id as id_coment, u.id as id_user,u.nickname , c.comentario,c.data_coment, c.tipo_categoria from users u
-inner join comentarios c on  c.id_user = u.id;
+select p.id as id_post,c.id as id_coment,u.id as id_user,u.nickname , c.comentario,c.data_coment, c.tipo_categoria from users u
+inner join comentarios c on  c.id_user = u.id
+inner join post p on p.id = c.id_post;
 
 create view vw_status as
-select  u.id as id_user, u.nickname, u.role_stats from users u ;
+select  u.id as id_user, u.nickname, u.role_stats, u.senha from users u ;
 
 select * from users;
 select * from post; 

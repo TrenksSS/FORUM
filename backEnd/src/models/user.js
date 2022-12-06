@@ -11,7 +11,7 @@ const toReadNickname = (model) => {
 }
 
 const login = (model) => {
-    return `SELECT * FROM vw_status`;
+    return `SELECT * FROM vw_status WHERE nickname =  '${model.nickname}'`;
 }
 
 const toDeleteUsers = (model) => {

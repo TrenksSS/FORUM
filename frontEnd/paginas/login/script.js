@@ -1,3 +1,7 @@
+const uriLogin = "http://localhost:4500/users/login"
+const nickname = document.querySelector("#email-login-user")
+const psw = document.querySelector("#senha-login-user")
+
 var olho = document.querySelector(".senha")
 var olho1 = document.querySelector(".senha1")
 var olho2 = document.querySelector(".senha2")
@@ -87,3 +91,27 @@ function login() {
     window.location.href = "../home/index.html"
 }
 
+<<<<<<< HEAD
+=======
+ function login(){
+
+    const info = {
+        "nickname": nickname.value,
+        "senha": psw.value
+    }
+
+    fetch(uriLogin, {
+        "method":"POST",
+        "headers": {
+            "Content-Type":"application/json"
+        },
+        "body": JSON.stringify(info)
+    })
+    .then(res => {return res.json()})
+    .then(data => {
+        if(data.erro == null) {
+            window.location.href= "../home/index.html"
+        }
+    })
+}
+>>>>>>> e93c557cc69eae8831d2cda5d9982d7283643e66
