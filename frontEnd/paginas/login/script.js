@@ -22,7 +22,7 @@ var nomeUser = document.querySelector("#nome-cadastro-user")
 var nick = document.querySelector("#nick-name")
 var userSenha = document.querySelector("#senha-cadastro-user")
 var userSenhac = document.querySelector("#senha-cadastro-user-confirm")
-var uri = `http://localhost:4500/postar/create`
+var uri = `http://localhost:4500/users/create`
 // -------------------------------------------
 function ver() {
     if (olho.type == "password") {
@@ -43,31 +43,28 @@ function ver() {
         console.log("ok 2")
     }
 }
-function abrirCad(){
+function abrirCad() {
     log.style = "display:none"
     cad.style = "display:flex"
 }
+
 function cadastrar() {
-    
+    console.log("ta aqui")
 
     let data = {}
-
+    console.log(data)
     let body = {
-        "id": document.getElementById("vagid").value,
-        "tipo": document.getElementById("op").value,
-        "chec": document.getElementById("x").value,
-
-        "nomeUser": document.querySelector("#nome-cadastro-user"),
-        "nick": document.querySelector("#nick-name"),
-        "userSenha": document.querySelector("#senha-cadastro-user"),
-        "userSenhac": document.querySelector("#senha-cadastro-user-confirm"),
+        "nome_user": document.querySelector("#nome-cadastro-user").value,
+        "nickname": document.querySelector("#nick-name").value,
+        "data_nasci": document.querySelector("#date").value,
+        "senha": document.querySelector("#senha-cadastro-user-confirm").value,
     }
     const options = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
     };
     options.body = JSON.stringify(body);
-    if (body.nomeUser.length > 0 && body.nick.length > 0 && body.userSenha.length > 0 && body.userSenhac.length > 0) {
+    if (body.nome_user.length > 0 && body.nickname.length > 0 && body.data_nasci.length > 0 && body.senha.length > 0) {
         fetch(uri, options)
             .then(resp => resp.status)
             .then(data => {
@@ -82,6 +79,7 @@ function cadastrar() {
             .catch(err => alert("Erro ao enviar dados. Erro:" + err));
     } else {
         alert("Preencha todos os campos obrigatórios");
+        console.log(data)
     }
 }
 
@@ -94,7 +92,7 @@ function login() {
     window.location.href = "../home/index.html"
 }
 
- function login(){
+function login() {
 
     const info = {
         "nickname": nickname.value,
@@ -102,16 +100,16 @@ function login() {
     }
 
     fetch(uriLogin, {
-        "method":"POST",
+        "method": "POST",
         "headers": {
-            "Content-Type":"application/json"
+            "Content-Type": "application/json"
         },
         "body": JSON.stringify(info)
     })
-    .then(res => {return res.json()})
-    .then(data => {
-        if(data.erro == null) {
-            window.location.href= "../home/index.html"
-        }
-    })
+        .then(res => { return res.json() })
+        .then(data => {
+            if (data.erro == null) {
+                window.location.href = "../home/index.html"
+            }
+        })
 }

@@ -138,6 +138,12 @@ main {
   border-radius: 2px;
   font-size: 20px;
 }
+#date{
+  background-color: var(--cor3);
+  border-radius: 5px;
+  border: 0;
+  margin: 20px;
+}
 
 .inputs:hover {
 
@@ -148,7 +154,7 @@ main {
   border-bottom-width: 1px;
   border-left-width: 0px;
   border-top-style: none;
-  color: white;
+  color: rgb(0, 0, 0);
 }
 
 .modal-login p {
