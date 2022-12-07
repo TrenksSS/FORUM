@@ -1,5 +1,5 @@
 const toCreateUsers = (model) => {
-    return `INSERT INTO users VALUES (DEFAULT, '${model.nome_user}','${model.nickname}','${model.data_nasci}','${model.senha}','${model.role_stats}','${model.avatar}')`;
+    return `INSERT INTO users VALUES (DEFAULT, '${model.nome_user}','${model.nickname}','${model.email}','${model.data_nasci}','${model.senha}','${model.role_stats}','${model.avatar}')`;
 }
 
 const toReadAllUsers = () => {
@@ -10,8 +10,8 @@ const toReadNickname = (model) => {
     return `SELECT * FROM users  WHERE nickname =  '${model.nickname}'`;
 }
 
-const login = (model) => {
-    return `SELECT * FROM vw_status WHERE nickname =  '${model.nickname}'`;
+const loginVal = (model) => {
+    return `SELECT * FROM vw_status where email='${model.email}' or nickname='${model.nickname}' and senha='${model.senha}'`;
 }
 
 const toDeleteUsers = (model) => {
@@ -19,7 +19,7 @@ const toDeleteUsers = (model) => {
 }
 
 const toUpdateUsers = (model)=>{
-    return `UPDATE users SET nome_user = '${model.nome_user}', nickname = '${model.nickname}', data_nasci = '${model.data_nasci}',senha = '${model.senha}', avatar = '${model.avatar}' WHERE id = ${model.id}`;
+    return `UPDATE users SET nome_user = '${model.nome_user}', nickname = '${model.nickname}', email = '${model.email}', data_nasci = '${model.data_nasci}',senha = '${model.senha}', avatar = '${model.avatar}' WHERE id = ${model.id}`;
     }
 
     const blobToAscii = (dados) => {
@@ -37,5 +37,5 @@ module.exports = {
     toDeleteUsers,
     toUpdateUsers,
     blobToAscii,
-    login
+    loginVal
 }

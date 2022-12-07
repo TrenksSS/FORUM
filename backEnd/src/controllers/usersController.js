@@ -16,30 +16,33 @@ const criarUser = (req, res) => {
     });
 }
 
-const login = (req,res) => {
-        conDB.query(User.login(req.body), (err, result) => {
-            if (err == null) {
-                if (result.length > 0){
-                    res.json(result).end();
-                }
-                else
-                    res.status(404).end();
-            }
-            // jwt.sign(result, process.env.KEY,{expiresIn: '1m'}, function(err, token) {
-            //     if(err == null){
-            //         result["token"] = token;
-            //         res.status(200).json(result).end();
-            //     }else{
-            //         res.status(404).json(err).end();
-        
-            //     }
-            // });
-         
-        });
-    };
 
-    
-    
+const login = (req, res) => {
+    const user = req.body;
+
+    conDB.query(User.loginVal(user), (err, result) => {
+        if(err == null){
+            if(user.nickname == result[0].nickname || user.email == result[0].email && user.senha == result[0].senha){
+                let retorno = {
+                    "id": result[0].id_user,
+                    "nickname": result[0].nickname,
+                    "email": result[0].email, 
+                    "role_stats": result[0].role_stats
+                }
+                jwt.sign(retorno, process.env.KEY, (err, token) => {
+                    if(err == null) {
+                        retorno["token"] = token;
+                        res.status(200).json(retorno).end();
+                    }else {
+                        res.status(404).json(err).end();
+                    }
+                });   
+            }
+        }else{
+            res.status(404).json(err).end()
+        }
+    })
+}
 
 
 const listarUsers = (req, res) => {

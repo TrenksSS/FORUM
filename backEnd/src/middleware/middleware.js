@@ -7,10 +7,10 @@ const validaAcesso = (req, res, next) => {
     jwt.verify(token, process.env.KEY, (err, data) => {
         if(err != null) res.status(404).json(err).end();
         else {
-            if(data.role_stats === "adm") {
+            if(data.role_stats === "admin") {
                 next();
             }else {
-                res.status(401).end();
+                res.status(401).end({msg:"Erro de permição VOCÊ NÃO É  UM ADM"});
             }
         }
     })

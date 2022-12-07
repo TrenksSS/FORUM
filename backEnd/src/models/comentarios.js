@@ -1,5 +1,5 @@
 const toCreateComent = (model) => {
-    return `INSERT INTO comentarios VALUES (DEFAULT, '${model.id_post}','${model.id_user}','${model.comentario}', curDate(),'${model.tipo_categoria}')`;
+    return `INSERT INTO comentarios VALUES (DEFAULT, '${model.id_post}','${model.id_user}','${model.comentario}', curDate())`;
 }
 
 const toReadAll = () => {
@@ -16,7 +16,7 @@ const toDeleteComent = (model) => {
 }
 
 const toUpdateComent = (model)=>{
-    return `UPDATE comentarios SET   comentario = '${model.comentario}',tipo_categoria = '${model.tipo_categoria}' WHERE id = ${model.id}`;
+    return `UPDATE comentarios SET   comentario = '${model.comentario}' WHERE id = ${model.id}`;
     }
 
 module.exports = {
