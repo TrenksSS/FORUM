@@ -64,7 +64,37 @@ function comentarios(){
     }
 }
 
-const fatchForum = async (forum) => {
-    
+
+function postar(){
+    let data = {}
+
+    let body = {
+        "": document.querySelector("#").value,
+        "": document.querySelector("#").value,
+        "": document.querySelector("#").value,
+        "": document.querySelector("#").value,
+    }
+    const options = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+    };
+    options.body = JSON.stringify(body);
+    if (body.nome_user.length > 0 && body.nickname.length > 0 && body.data_nasci.length > 0 && body.senha.length > 0) {
+        fetch(uri, options)
+            .then(resp => resp.status)
+            .then(data => {
+                if (data == 201) {
+                    alert("Post Compartilhado 😀");
+                    window.location.reload();
+                } else {
+                    alert("Erro ao enviar Post 🙁");
+                    window.location.reload();
+                }
+            })
+            .catch(err => alert("❌ Erro ao enviar dados. Erro:" + err));
+    } else {
+        alert("Preencha todos os campos obrigatórios ❗");
+        console.log(data)
+    }
 }
  

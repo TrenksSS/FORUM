@@ -27,18 +27,14 @@ var uri = `http://localhost:4500/users/create`
 function ver() {
     if (olho.type == "password") {
         olho.type = "text"
-        olho1.type = "text"
         olho2.type = "text"
         img.src = "../../../assets/invisivel.png"
-        img1.src = "../../../assets/invisivel.png"
         img2.src = "../../../assets/invisivel.png"
         console.log("ok")
     } else {
         olho.type = "password"
-        olho1.type = "password"
         olho2.type = "password"
         img.src = "../../../assets/olho.png"
-        img1.src = "../../../assets/olho.png"
         img2.src = "../../../assets/olho.png"
         console.log("ok 2")
     }
@@ -69,16 +65,16 @@ function cadastrar() {
             .then(resp => resp.status)
             .then(data => {
                 if (data == 201) {
-                    alert("Cliente cadastrado com sucesso");
+                    alert("Usuario cadastrado 😀, faça login ✔");
                     window.location.reload();
                 } else {
-                    alert("Erro ao enviar dados.");
+                    alert("Erro ao enviar dados 🙁");
                     window.location.reload();
                 }
             })
-            .catch(err => alert("Erro ao enviar dados. Erro:" + err));
+            .catch(err => alert("❌ Erro ao enviar dados. Erro:" + err));
     } else {
-        alert("Preencha todos os campos obrigatórios");
+        alert("Preencha todos os campos obrigatórios ❗");
         console.log(data)
     }
 }

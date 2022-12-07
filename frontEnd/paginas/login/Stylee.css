@@ -139,10 +139,13 @@ main {
   font-size: 20px;
 }
 #date{
+  width: 150px;
+  height: 25px;
   background-color: var(--cor3);
   border-radius: 5px;
   border: 0;
   margin: 20px;
+  font-size: 15px;
 }
 
 .inputs:hover {
