@@ -10,7 +10,7 @@ const validaAcesso = (req, res, next) => {
             if(data.role_stats === "admin") {
                 next();
             }else {
-                res.status(401).end({msg:"Erro de permição VOCÊ NÃO É  UM ADM"});
+                res.status(401).json({msg:"Erro de permição VOCÊ NÃO É  UM ADM"}).end();
             }
         }
     })
