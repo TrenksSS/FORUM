@@ -84,28 +84,31 @@ function voltaLog() {
     cad.style = "display:none"
 }
 
-function login() {
-    window.location.href = "../home/index.html"
-}
 
-function login() {
 
-    const info = {
+
+const login = () => {
+    console.log(nickname.value);
+    let usuario = {
+        "email": nickname.value,
         "nickname": nickname.value,
         "senha": psw.value
     }
 
     fetch(uriLogin, {
-        "method": "POST",
-        "headers": {
-            "Content-Type": "application/json"
+        'method':'POST',
+        'headers': {
+            'Content-Type':'application/json'
         },
-        "body": JSON.stringify(info)
+        body: JSON.stringify(usuario)
+    }).then(response => { return response.json() })
+    .then(info => {
+        if(info != undefined) {
+            window.localStorage.setItem('usuario', nickname);
+            window.location.href = "../home/index.html"
+        } else {
+            alert('Erro no Login, usuário ou  senha incorreta!');
+            window.location.reload();
+        }
     })
-        .then(res => { return res.json() })
-        .then(data => {
-            if (data.erro == null) {
-                window.location.href = "../home/index.html"
-            }
-        })
 }
