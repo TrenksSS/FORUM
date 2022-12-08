@@ -29,6 +29,10 @@ var timeR = document.querySelector("#r-time")
 var tresp = document.querySelector("#c-resp")
 // -------------------------------------------------------
 
+// ------------------variaveis dos links-----------------
+var uri = `http://localhost:4500/postar/create`
+// -------------------------------------------------------
+
 function like() {
     
     if (cora.src == "../../../assets/coracaoN.png") {
@@ -69,17 +73,15 @@ function postar(){
     let data = {}
 
     let body = {
-        "": document.querySelector("#").value,
-        "": document.querySelector("#").value,
-        "": document.querySelector("#").value,
-        "": document.querySelector("#").value,
+        "titulo_post": document.querySelector("#novo_post").value,
+        "tipo_post": document.querySelector("#cc").value,
     }
     const options = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
     };
     options.body = JSON.stringify(body);
-    if (body.nome_user.length > 0 && body.nickname.length > 0 && body.data_nasci.length > 0 && body.senha.length > 0) {
+    if (body.titulo_post.length > 0 && body.tipo_post.length > 0) {
         fetch(uri, options)
             .then(resp => resp.status)
             .then(data => {

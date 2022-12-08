@@ -42,8 +42,13 @@
                 <h2>Novo post</h2>
                 <p>Compartilhe coma comunidade oque está pensando</p>
                 <textarea name="" id="novo_post" cols="300" rows="10"></textarea>
+                <p>Selecione a categoria </p>
+                <select id="cc" name="select">
+                    <option  value="carros">Carros</option>
+                    <option  value="motos">Motos</option>
+                  </select>
                 <div class="btns">
-                    <button id="postar" ">POSTAR</button>
+                    <button id="postar" onclick="postar()">POSTAR</button>
                 <button id="cancel" onclick="ncancel()">CANCELAR</button>
                 </div>
             </div>
