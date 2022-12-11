@@ -79,10 +79,24 @@ nav {}
     box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
     z-index: 2;
 }
-
+.risco{
+    margin: 10px;
+    width: 11vw;
+    border: 1px solid #979797;
+}
+.cat-fav{
+    display: flex;
+    font-size: 20px;
+}
+.cat-fav img{
+    margin-left: 10px;
+    width: 20px;
+    height: 20px;
+    
+}
 .categoria{
     margin-top: 5px;
-    width: 250px;
+    width: 200px;
     height: 35px;
     display: flex;
     flex-direction: column;
@@ -91,7 +105,11 @@ nav {}
     font-size: 20px;
     border-radius: 50px;
     background-color: var(--cor2);
-
+    cursor: pointer;
+}
+.categoria:hover{
+    transition: 0.5s;
+    background-color: var(--cor5);
 }
 
 .cont {
@@ -117,6 +135,38 @@ nav {}
 .post:hover{
     transition: 0.6s;
     box-shadow: rgba(0, 0, 0, 0.411) 0px 2px 4px 0px, rgba(0, 0, 0, 0.26) 0px 2px 16px 0px;
+}
+#denuncia{
+    cursor: pointer;
+    width: 25px;
+    height: 25px;
+    margin: 10px;
+}
+.denuncia{
+    display: none;
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--cor4);
+    z-index: 2;
+}
+.modalDenuncia{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    left: 28vw;
+    bottom: 10vh;
+    position: absolute;
+    width: 50vw;
+    height: 80vh;
+    border-radius: 10px;
+    background-color: white;
+}
+#cancel2{
+    margin: 20px;
+    width: 100px;
+    height: 40px;
 }
 /* ------------------------------------------------------------------- */
 

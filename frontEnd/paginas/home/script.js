@@ -11,7 +11,9 @@ var himg = document.querySelector("#user-img")
 // -------------------------------------------------------
 
 // ------------------variaveis dos posts-----------------
+var contpost = document.querySelector(".cont")
 var post = document.querySelector(".post")
+
 var imgUser = document.querySelector("#post-info-user")
 var timePost = document.querySelector("#time")
 var nickPost = document.querySelector("#nick-user")
@@ -21,7 +23,7 @@ var numeroLike = document.querySelector("#like-n")
 var numCom = document.querySelector("#resp-number")
 // -------------------------------------------------------
 
-// ------------------variaveis dos posts-----------------
+// ------------------variaveis das respostas-----------------
 var contResp = document.querySelector(".respostas")
 var imgR = document.querySelector("#r-user")
 var nickR = document.querySelector("#r-nick")
@@ -29,13 +31,15 @@ var timeR = document.querySelector("#r-time")
 var tresp = document.querySelector("#c-resp")
 // -------------------------------------------------------
 
+var deni = document.querySelector(".denuncia")
+
 // ------------------variaveis dos links-----------------
 var uri = `http://localhost:4500/postar/create`
 // -------------------------------------------------------
 
 function like() {
     
-    if (cora.src == "../../../assets/coracaoN.png") {
+    if (cora.src == `../../../assets/coracaoN.png`) {
         cora.src = "../../../assets/coracao.png"
         console.log("ok")
     } else {
@@ -59,6 +63,12 @@ function Np(){
 }
 function ncancel(){
     novoPost.style = "display:none"
+}
+function ncancel2(){
+    deni.style = "display:none"
+}
+function denun(){
+    deni.style = "display:flex"
 }
 function comentarios(){
     if(resp.style.display == "none"){
@@ -100,3 +110,21 @@ function postar(){
     }
 }
  
+fetch("http://localhost:4500/post/read")
+.then(res => { return res.json() })
+.then(posts => {
+    console.log(posts)
+    posts.forEach(post => {
+        let novoPost = post.cloneNode(true);
+        novoPost.classList.remove("model");
+
+        novoPost.conteudoPost.innerHTML = post.titulo_post;
+        novoPost.timePost.innerHTML = post.data_post;
+
+        novoPost.querySelector("button").addEventListener("click", () => {
+            window.location.href = "http://127.0.0.1:5500/correcao_ex09/comentarios/index.html?postId=" + post.id;
+        })
+
+        contpost.appendChild(novoPost);
+    })
+})

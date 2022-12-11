@@ -30,9 +30,14 @@
 
     <nav>
         <div class="modal-nav">
+            <div class="cat-fav">
+                <p>Favoritos</p>
+                <img src="../../../assets/black-star-silhouette.png" alt="">
+            </div>
             <div class="categoria">
                 <p>categoria</p>
             </div>
+            <div class="risco"></div>
             <div class="categoria">
                 <p>Carro </p>
             </div>
@@ -53,10 +58,18 @@
                 </div>
             </div>
         </div>
-        </div>
     </nav>
 
-
+    <div class="denuncia" >
+        <div class="modalDenuncia">
+            <h2>Oque a de errado com essa publicação?</h2>
+            <textarea name="" id="novo_post" cols="30" rows="10"></textarea>
+            <div class="btns">
+                <button id="postar" onclick="postar()">POSTAR</button>
+            <button id="cancel2" onclick="ncancel2()">CANCELAR</button>
+            </div>
+        </div>
+    </div>
 
     <main>
         <div class="cont">
@@ -65,6 +78,7 @@
                     <img id="post-user-img" src="../../../assets/user.png" alt="">
                     <p id="nick-user">Nick Name</p>
                     <p id="time">20:15</p>
+                    <img id="denuncia"  onclick="denun()" src="../../../assets/perigo.png" alt="denuncia">
                 </div>
                 <div id="imagem-post">
                     <img id="img-p" src="../../../assets/Captura de tela 2022-12-01 201117.png" alt="">
@@ -98,7 +112,7 @@
                     </div>
                     </div>
             </div>
-            
+        </div>
 
     </main>
 </body>
