@@ -93,7 +93,7 @@ function postar(){
     let body = {
         "titulo_post": document.querySelector("#novo_post").value,
         "tipo_post": document.querySelector("#cc").value,
-        "img": document.querySelector("#nova-img")
+        "img": document.querySelector("#nova-img").value
     }
     const options = {
         method: 'POST',
