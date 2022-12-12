@@ -97,13 +97,14 @@ function postar(){
     let body = {
         "titulo_post": document.querySelector("#novo_post").value,
         "tipo_post": document.querySelector("#cc").value,
+        "img": document.querySelector("#nova-img")
     }
     const options = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
     };
     options.body = JSON.stringify(body)
-    if (body.titulo_post.length > 0 && body.tipo_post.length > 0) {
+    if (body.titulo_post.length > 0 && body.tipo_post.length > 0 && body.img.length > 0) {
         fetch(uri, options)
             .then(resp => resp.status)
             .then(data => {
