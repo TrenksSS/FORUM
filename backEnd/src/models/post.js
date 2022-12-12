@@ -1,9 +1,9 @@
 const toCreatePost = (model) => {
-    return `INSERT INTO post VALUES (DEFAULT, '${model.id_user}','${model.titulo_post}',curDate(),'${model.tipo_post}','${model.img}')`;
+    return `INSERT INTO post VALUES (DEFAULT, '${model.id_user}','${model.titulo_post}',curDate(),'${model.tipo_post}',0,'${model.img}')`;
 }
 
 const toReadAllPost = () => {
-    return "SELECT * FROM post";
+    return "SELECT * FROM vw_posts";
 }
 
 const toReadIdPost = (model) => {
@@ -22,6 +22,7 @@ const toUpdatePost = (model)=>{
 const blobToAscii = (dados) => {
     dados.forEach(e => {
         if (e.img != null) e.img = e.img.toString('ascii');
+        if (e.avatar != null ) e.avatar = e.avatar.toString('ascii');
     });
     return dados;
 }

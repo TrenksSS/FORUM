@@ -5,6 +5,14 @@ var np = document.querySelector("#novo-post")
 var novoPost = document.querySelector(".novo-post-cont")
 var resp = document.querySelector(".respostas")
 
+const username = document.querySelector("#user-nick")
+const imguser = document.querySelector("#user-img")
+
+var userinfo = JSON.parse(localStorage.getItem("usuario"))
+username.innerHTML = userinfo.userName
+imguser.src = userinfo.img;
+console.log(localStorage)
+
 // ------------------variaveis dos hader-----------------
 var hnick = document.querySelector("#uner-nick")
 var himg = document.querySelector("#user-img")
@@ -90,41 +98,50 @@ function postar(){
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
     };
-    options.body = JSON.stringify(body);
+    options.body = JSON.stringify(body)
     if (body.titulo_post.length > 0 && body.tipo_post.length > 0) {
         fetch(uri, options)
             .then(resp => resp.status)
             .then(data => {
                 if (data == 201) {
-                    alert("Post Compartilhado 😀");
-                    window.location.reload();
+                    alert("Post Compartilhado 😀")
+                    window.location.reload()
                 } else {
-                    alert("Erro ao enviar Post 🙁");
-                    window.location.reload();
+                    alert("Erro ao enviar Post 🙁")
+                    window.location.reload()
                 }
             })
             .catch(err => alert("❌ Erro ao enviar dados. Erro:" + err));
     } else {
-        alert("Preencha todos os campos obrigatórios ❗");
+        alert("Preencha todos os campos obrigatórios ❗")
         console.log(data)
     }
 }
  
+const corpo = document.querySelector(".cont");
+
+
 fetch("http://localhost:4500/post/read")
 .then(res => { return res.json() })
 .then(posts => {
     console.log(posts)
     posts.forEach(post => {
-        let novoPost = post.cloneNode(true);
-        novoPost.classList.remove("model");
+        let novoPost =  document.querySelector(".post").cloneNode(true)
+        novoPost.classList.remove('model');
+        novoPost.querySelector("#img-p").src = post.img;
+        novoPost.querySelector("#comentario-user").innerHTML = post.titulo_post;
+        novoPost.querySelector("#nick-user").innerHTML = post.nickname;
+        novoPost.querySelector("#like-n").innerHTML = post.curtida;
+        novoPost.querySelector("#post-user-img").src = post.avatar;
+        novoPost.querySelector("#time").innerHTML = post.data_post.slice(0, 10);
 
-        novoPost.conteudoPost.innerHTML = post.titulo_post;
-        novoPost.timePost.innerHTML = post.data_post;
 
-        novoPost.querySelector("button").addEventListener("click", () => {
-            window.location.href = "http://127.0.0.1:5500/correcao_ex09/comentarios/index.html?postId=" + post.id;
-        })
 
-        contpost.appendChild(novoPost);
+
+        
+
+       
+
+        corpo.appendChild(novoPost)
     })
 })

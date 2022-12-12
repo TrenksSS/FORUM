@@ -289,3 +289,7 @@ main {
   transition: 0.4s;
     color: #4fb9e4;
 }
+
+.model{
+  display: none;
+}

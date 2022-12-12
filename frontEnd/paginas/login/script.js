@@ -103,8 +103,10 @@ const login = () => {
         body: JSON.stringify(usuario)
     }).then(response => { return response.json() })
     .then(info => {
-        if(info != undefined) {
-            window.localStorage.setItem('usuario', nickname);
+        if(info[0] != undefined) {
+            console.log(info[0]);
+            localStorage.setItem('usuario',JSON.stringify({"id":info[0].id_user, "userName":info[0].nickname, "email":info[0].email,"rola":info[0].role_stats, "img":info[0].avatar}));
+            console.log(localStorage);
             window.location.href = "../home/index.html"
         } else {
             alert('Erro no Login, usuário ou  senha incorreta!');
