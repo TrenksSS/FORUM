@@ -19,6 +19,7 @@ const listarPosts = (req, res) => {
         if (err == null) {
             if (result.length > 0)
                 res.json(Post.blobToAscii(result)).end();
+
             else
                 res.status(404).end();
         }

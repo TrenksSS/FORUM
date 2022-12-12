@@ -21,13 +21,15 @@ const login = (req, res) => {
     const user = req.body;
 
     conDB.query(User.loginVal(user), (err, result) => {
+        res.json(User.blobToAscii(result)).end();
         if(err == null){
             if(user.nickname == result[0].nickname || user.email == result[0].email && user.senha == result[0].senha){
                 let retorno = {
                     "id": result[0].id_user,
                     "nickname": result[0].nickname,
                     "email": result[0].email, 
-                    "role_stats": result[0].role_stats
+                    "role_stats": result[0].role_stats,
+                    "avatar": result[0].avatar
                 }
                 jwt.sign(retorno, process.env.KEY, (err, token) => {
                     if(err == null) {

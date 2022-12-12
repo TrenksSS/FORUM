@@ -355,20 +355,6 @@ nav {}
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ::-webkit-scrollbar {
     width: 10px;
 }
@@ -483,4 +469,8 @@ nav {}
   #f-cad:hover{
     transition: 0.4s;
       color: #4fb9e4;
+  }
+
+  .model{
+    display: none;
   }
