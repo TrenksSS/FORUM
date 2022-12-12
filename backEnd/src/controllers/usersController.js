@@ -21,7 +21,7 @@ const login = (req, res) => {
     const user = req.body;
 
     conDB.query(User.loginVal(user), (err, result) => {
-        res.json(User.blobToAscii(result)).end();
+       
         if(err == null){
             if(user.nickname == result[0].nickname || user.email == result[0].email && user.senha == result[0].senha){
                 let retorno = {
@@ -51,7 +51,7 @@ const listarUsers = (req, res) => {
     conDB.query(User.toReadAllUsers(), (err, result) => {
         if (err == null) {
             if (result.length > 0)
-                res.json(User.blobToAscii(result)).end();
+                res.json(result).end();
             else
                 res.status(404).end();
         }
@@ -63,7 +63,7 @@ const listarNickname = (req, res) => {
     conDB.query(User.toReadNickname(req.body), (err, result) => {
         if (err == null) {
             if (result.length > 0)
-                res.json(User.blobToAscii(result)).end();
+                res.json(result).end();
             else
                 res.status(404).end();
         }

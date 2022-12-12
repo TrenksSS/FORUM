@@ -45,39 +45,44 @@ function abrirCad() {
 }
 
 function cadastrar() {
-    console.log("ta aqui")
-
-    let data = {}
-    console.log(data)
-    let body = {
-        "nome_user": document.querySelector("#nome-cadastro-user").value,
-        "nickname": document.querySelector("#nick-name").value,
-        "data_nasci": document.querySelector("#date").value,
-        "senha": document.querySelector("#senha-cadastro-user-confirm").value,
-    }
-    const options = {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-    };
-    options.body = JSON.stringify(body);
-    if (body.nome_user.length > 0 && body.nickname.length > 0 && body.data_nasci.length > 0 && body.senha.length > 0) {
+        const arquivo = document.querySelector("#foto");
+        //Monta o corpo da requisição
+        const body = {
+            "tipo": document.querySelector("#tipo").value,
+            "nome": document.querySelector("#nome").value,
+            "ingredientes": document.querySelector("#ingredientes").value,
+            "modoPreparo": document.querySelector("#modo_preparo").value
+        }
+        if (arquivo.files.length > 0) {
+            body.foto = arquivo.files[0].name;
+            enviarArquivo(arquivo);
+        } else {
+            body.foto = 'default.png';
+        }
+        const options = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' }
+        };
+        options.body = JSON.stringify(body);
+        //Envia os dados do formulário para o back-end
         fetch(uri, options)
             .then(resp => resp.status)
-            .then(data => {
-                if (data == 201) {
-                    alert("Usuario cadastrado 😀, faça login ✔");
-                    window.location.reload();
+            .then(resp => {
+                if (resp == 201) {
+                    alert("Usuario cadastrado 😀, faça login ✔")
+                    window.location.reload()
                 } else {
-                    alert("Erro ao enviar dados 🙁");
-                    window.location.reload();
+                    alert("Erro ao enviar dados 🙁: " + resp)
                 }
             })
-            .catch(err => alert("❌ Erro ao enviar dados. Erro:" + err));
-    } else {
-        alert("Preencha todos os campos obrigatórios ❗");
-        console.log(data)
+            .catch(err => {
+                alert("❌ Erro ao enviar dados. Erro:" + err)
+
+
+            });
     }
-}
+                   
+
 
 function voltaLog() {
     log.style = "display:flex"
@@ -88,7 +93,8 @@ function voltaLog() {
 
 
 const login = () => {
-    console.log(nickname.value);
+    nickname.value = "OO"
+    psw.value = "1234"
     let usuario = {
         "email": nickname.value,
         "nickname": nickname.value,

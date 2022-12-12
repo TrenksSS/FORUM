@@ -8,10 +8,10 @@ create table users(
     nome_user varchar(50) not null,
     nickname varchar(50) not null unique,
     email varchar(50) not null unique,
-    data_nasci date not null,
+    data_nasci varchar(12) not null,
     senha varchar(20) not null,
     role_stats varchar(20) not null,
-    avatar mediumblob
+    avatar varchar(100)
 );
 
 create table post(
@@ -47,7 +47,7 @@ create table respostas(
 
 
 
-insert into users values(default,'Juliana', 'ju','julianaSato@hotmail.com','2002-11-10', 'plocploc','User',"https://conteudo.imguol.com.br/c/noticias/51/2018/07/25/25jul2018---momo-perfil-do-whatsapp-que-esta-intrigando-as-pessoas-1532524592590_615x300.jpg.webp");
+insert into users values(default,'Juliana', 'jujubinha','julianaSato@hotmail.com','2002-11-10', 'plocploc','User',"https://img.elo7.com.br/product/zoom/3E26D20/desenho-personalizado-para-perfil-desenho-personalizado.jpg");
 insert into users values(default,'O.O', 'OO','Uepa@gmail.com','2002-11-10', '1234','admin',"https://4maos.com.br/wp-content/uploads/2022/06/dd4119682cc07831e8a39ae2d157f906.jpg");
 
 insert into post values(default,1, 'Esse carro é PIKA ', DATE_SUB(curdate(),INTERVAL 3 DAY), 'Carro',33,'https://pbs.twimg.com/media/DCmgkOdXUAAsO_N?format=jpg&name=360x360');
