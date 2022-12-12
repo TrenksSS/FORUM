@@ -22,12 +22,6 @@ const toUpdateUsers = (model)=>{
     return `UPDATE users SET nome_user = '${model.nome_user}', nickname = '${model.nickname}', email = '${model.email}', data_nasci = '${model.data_nasci}',senha = '${model.senha}', avatar = '${model.avatar}' WHERE id = ${model.id}`;
     }
 
-    const blobToAscii = (dados) => {
-        dados.forEach(e => {
-            if (e.avatar != null) e.avatar = e.avatar.toString('ascii');
-        });
-        return dados;
-    }
     
 
 module.exports = {
@@ -36,6 +30,5 @@ module.exports = {
     toReadNickname,   
     toDeleteUsers,
     toUpdateUsers,
-    blobToAscii,
     loginVal
 }

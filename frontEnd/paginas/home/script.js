@@ -7,11 +7,15 @@ var resp = document.querySelector(".respostas")
 
 const username = document.querySelector("#user-nick")
 const imguser = document.querySelector("#user-img")
+// const id_user = document.querySelector("#user-id")
+
 
 var userinfo = JSON.parse(localStorage.getItem("usuario"))
 username.innerHTML = userinfo.userName
-imguser.src = userinfo.img;
-console.log(localStorage)
+imguser.src = userinfo.img
+ const id_user = userinfo.id
+console.log(id_user)
+
 
 // ------------------variaveis dos hader-----------------
 var hnick = document.querySelector("#uner-nick")
@@ -135,14 +139,6 @@ fetch("http://localhost:4500/post/read")
         novoPost.querySelector("#like-n").innerHTML = post.curtida;
         novoPost.querySelector("#post-user-img").src = post.avatar;
         novoPost.querySelector("#time").innerHTML = post.data_post.slice(0, 10);
-
-
-
-
-        
-
-       
-
         corpo.appendChild(novoPost)
     })
 })
