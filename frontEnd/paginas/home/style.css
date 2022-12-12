@@ -60,6 +60,7 @@ header {
 
 #user-img {
     width: 40px;
+    border-radius: 50px;
 }
 .cab-post{
 }
@@ -232,11 +233,13 @@ nav {}
 #post-user-img {
     width: 35px;
     margin-right: 2%;
+    border-radius: 50px;
 }
 
 #nick-user {}
 
 #time {
+    width: 250px;
     margin-left: 70%;
     color: var(--cor5);
 }
