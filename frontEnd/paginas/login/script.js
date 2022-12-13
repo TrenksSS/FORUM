@@ -94,8 +94,8 @@ function voltaLog() {
 
 
 const login = () => {
-    // nickname.value = "OO"
-    // psw.value = "1234"
+    nickname.value = "OO"
+    psw.value = "1234"
     let usuario = {
         "email": nickname.value,
         "nickname": nickname.value,

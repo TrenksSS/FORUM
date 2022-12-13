@@ -41,7 +41,7 @@ const listarId = (req, res) => {
 
 
 const excluirPost = (req, res) => {
-    conDB.query(Post.toDeletePost(req.body), (err, result) => {
+    conDB.query(Post.toDeletePost(req.params), (err, result) => {
         if (err == null)
             if (result.affectedRows > 0)
                 res.status(204).end();

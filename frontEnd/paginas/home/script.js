@@ -14,7 +14,6 @@ var userinfo = JSON.parse(localStorage.getItem("usuario"))
 username.innerHTML = userinfo.userName
 imguser.src = "../../../assets/repositorio/" + userinfo.img
  const id_user = userinfo.id
-console.log(id_user)
 
 
 // ------------------variaveis dos hader-----------------
@@ -53,7 +52,6 @@ function like() {
     
     if (cora.src == `../../../assets/coracaoN.png`) {
         cora.src = "../../../assets/coracao.png"
-        console.log("ok")
     } else {
         cora.src = "../../../assets/coracaoN.png"
     }
@@ -64,6 +62,7 @@ function newpost() {
     setTimeout(() => {np.innerHTML = "Novo post +"}, 350);
     np.style.transition = "0.5s"
 }
+
 function newp() {
     np.innerHTML = "+"
     np.style.width = "1px"
@@ -119,20 +118,19 @@ function postar(){
             .catch(err => alert("❌ Erro ao enviar dados. Erro:" + err));
     } else {
         alert("Preencha todos os campos obrigatórios ❗")
-        console.log(data)
     }
 }
  
 const corpo = document.querySelector(".cont");
 
-
 fetch("http://localhost:4500/post/read")
 .then(res => { return res.json() })
 .then(posts => {
-    console.log(posts)
     posts.forEach(post => {
+
+
         let novoPost =  document.querySelector(".post").cloneNode(true)
-        novoPost.classList.remove('model');
+        novoPost.classList.remove('model')
         novoPost.querySelector("#img-p").src = post.img;
         novoPost.querySelector("#comentario-user").innerHTML = post.titulo_post;
         novoPost.querySelector("#nick-user").innerHTML = post.nickname;
@@ -140,7 +138,18 @@ fetch("http://localhost:4500/post/read")
         novoPost.querySelector("#post-user-img").src = "../../../assets/repositorio/" + post.avatar;
         novoPost.querySelector("#date").innerHTML = post.h_postado.slice(0, 5);
         novoPost.querySelector("#time").innerHTML = post.data_post.slice(0, 10);
+        novoPost.querySelector("#btnEx").addEventListener("click", () => { remover(post.id_post, post); })
 
         corpo.appendChild(novoPost)
     })
 })
+
+function remover(id, post) {
+    fetch("http://localhost:4500/post/delete/" + id, {
+        "method": "DELETE"
+    })
+        .then(resp => { return resp })
+        .then(data => {
+        });
+        window.location.reload();
+}

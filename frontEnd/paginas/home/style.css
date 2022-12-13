@@ -43,7 +43,15 @@ header {
 #img-cab {
     width: 40px;
 }
-
+#btnEx img{
+    margin-left: 40%;
+    width: 30px;
+}
+#btnEx{
+    background:transparent;
+    border: none;
+    background-color: white;
+}
 .user-info {
     position: absolute;
     margin: 2vh;
@@ -59,7 +67,8 @@ header {
 }
 
 #user-img {
-    width: 40px;
+    margin-top: -10%;
+    width: 60px;
     border-radius: 50px;
 }
 .cab-post{
@@ -231,7 +240,7 @@ nav {}
 }
 
 #post-user-img {
-    width: 35px;
+    width: 75px;
     margin-right: 2%;
     border-radius: 50px;
 }
@@ -248,7 +257,7 @@ nav {}
 #time {
     display: block;
     width: 120px;
-    margin-left: 60%;
+    margin-left: 40%;
     color: var(--cor5);
 }
 
