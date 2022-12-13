@@ -12,7 +12,7 @@ const imguser = document.querySelector("#user-img")
 
 var userinfo = JSON.parse(localStorage.getItem("usuario"))
 username.innerHTML = userinfo.userName
-imguser.src = userinfo.img
+imguser.src = "../../../assets/repositorio/" + userinfo.img
  const id_user = userinfo.id
 console.log(id_user)
 
@@ -137,8 +137,10 @@ fetch("http://localhost:4500/post/read")
         novoPost.querySelector("#comentario-user").innerHTML = post.titulo_post;
         novoPost.querySelector("#nick-user").innerHTML = post.nickname;
         novoPost.querySelector("#like-n").innerHTML = post.curtida;
-        novoPost.querySelector("#post-user-img").src = post.avatar;
+        novoPost.querySelector("#post-user-img").src = "../../../assets/repositorio/" + post.avatar;
+        novoPost.querySelector("#date").innerHTML = post.h_postado.slice(0, 5);
         novoPost.querySelector("#time").innerHTML = post.data_post.slice(0, 10);
+
         corpo.appendChild(novoPost)
     })
 })

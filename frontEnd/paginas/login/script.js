@@ -48,23 +48,24 @@ function cadastrar() {
         const arquivo = document.querySelector("#foto");
         //Monta o corpo da requisição
         const body = {
-            "tipo": document.querySelector("#tipo").value,
-            "nome": document.querySelector("#nome").value,
-            "ingredientes": document.querySelector("#ingredientes").value,
-            "modoPreparo": document.querySelector("#modo_preparo").value
+        "nome_user": document.querySelector("#nome-cadastro-user").value,
+	    "nickname": document.querySelector("#nick-name").value,
+	    "email": document.querySelector("#Email").value,
+	    "data_nasci": document.querySelector("#date").value,
+	    "senha": document.querySelector("#senha-cadastro-user-confirm").value,
+	    "role_stats":"usuario"
         }
         if (arquivo.files.length > 0) {
-            body.foto = arquivo.files[0].name;
+            body.avatar = arquivo.files[0].name;
             enviarArquivo(arquivo);
         } else {
-            body.foto = 'default.png';
+            body.avatar = 'default.png';
         }
         const options = {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' }
         };
         options.body = JSON.stringify(body);
-        //Envia os dados do formulário para o back-end
         fetch(uri, options)
             .then(resp => resp.status)
             .then(resp => {
@@ -93,8 +94,8 @@ function voltaLog() {
 
 
 const login = () => {
-    nickname.value = "OO"
-    psw.value = "1234"
+    // nickname.value = "OO"
+    // psw.value = "1234"
     let usuario = {
         "email": nickname.value,
         "nickname": nickname.value,
@@ -109,14 +110,29 @@ const login = () => {
         body: JSON.stringify(usuario)
     }).then(response => { return response.json() })
     .then(info => {
-        if(info[0] != undefined) {
-            console.log(info[0]);
-            localStorage.setItem('usuario',JSON.stringify({"id":info[0].id_user, "userName":info[0].nickname, "email":info[0].email,"rola":info[0].role_stats, "img":info[0].avatar}));
+        if(info[0] =! undefined) {
+            console.log(info);
+            localStorage.setItem('usuario',JSON.stringify({"nome":info.nome_user,"nascimento":info.data_nasci,"id":info.id, "userName":info.nickname, "email":info.email,"rola":info.role_stats, "img":info.avatar}));
             console.log(localStorage);
             window.location.href = "../home/index.html"
         } else {
-            alert('Erro no Login, usuário ou  senha incorreta!');
-            window.location.reload();
+            alert(' ❌ Erro no Login, usuário ou  senha incorreta!');
         }
     })
+}
+
+function enviarArquivo(arq) {
+    const data = new FormData();
+    data.append("img", arq.files[0]);
+    const options = {
+        method: 'POST'
+    };
+    options.body = data;
+    fetch('http://localhost:4500/arquivos', options)
+        .then(resp => resp.status)
+        .then(resp => {
+            if (resp != 200)
+                alert("❌ Erro ao enviar imagem, Código HTTP:" + resp);
+        })
+        .catch(err => console.error(err));
 }

@@ -46,20 +46,20 @@
                     <h2 class="titulo-2">CADASTRAR</h2>
                 </div>
                 <p>Nome completo</p>
-                <input class="inputs" id="nome-cadastro-user" type="text">
+                <input class="inputs" id="nome-cadastro-user" type="text" required>
                 <p>Nickname/User</p>
-                <input class="inputs" id="nick-name" type="text">
+                <input class="inputs" id="nick-name" type="text" required>
                 <p>Email</p>
-                <input class="inputs" id="Email" type="text">
+                <input class="inputs" id="Email" type="text" required>
                 <p>Data de nascimento</p>
-                <input id="date" type="date">
+                <input id="date" type="date" required>
                 <p>Criar Senha</p>
                 <div id="senha2-confirma">
-                    <input class="inputs senha2" id="senha-cadastro-user-confirm" type="password">
+                    <input class="inputs senha2" id="senha-cadastro-user-confirm" type="password" required>
                     <img class="olho2" onclick="ver()" src="../../../assets/olho.png" alt="">
                 </div>
                 <p class="avatar">Escolha um Avatar</p>
-                <input type="file" class="avatar" id="foto" name="foto" />
+                <input type="file" class="avatar" id="foto" name="foto" required />
                 <div id="cont-btn">
                     <button onclick="cadastrar()" id="btn">Cadastrar</button>
 

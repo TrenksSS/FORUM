@@ -1,5 +1,5 @@
 const toCreatePost = (model) => {
-    return `INSERT INTO post VALUES (DEFAULT, '${model.id_user}','${model.titulo_post}',curDate(),'${model.tipo_post}',0,'${model.img}')`;
+    return `INSERT INTO post VALUES (DEFAULT, '${model.id_user}','${model.titulo_post}', CURTIME(),curDate(),'${model.tipo_post}',0,'${model.img}')`;
 }
 
 const toReadAllPost = () => {

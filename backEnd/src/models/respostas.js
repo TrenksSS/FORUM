@@ -1,5 +1,5 @@
 const toCreateResp = (model) => {
-    return `INSERT INTO respostas VALUES (DEFAULT, '${model.id_coment}','${model.id_users}', '${model.comentario}',curDate())`;
+    return `INSERT INTO respostas VALUES (DEFAULT, '${model.id_coment}','${model.id_users}', CURTIME() , '${model.comentario}',curDate())`;
 }
 
 const toReadAll = () => {

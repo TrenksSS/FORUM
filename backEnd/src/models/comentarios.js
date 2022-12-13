@@ -1,5 +1,5 @@
 const toCreateComent = (model) => {
-    return `INSERT INTO comentarios VALUES (DEFAULT, '${model.id_post}','${model.id_user}','${model.comentario}', curDate())`;
+    return `INSERT INTO comentarios VALUES (DEFAULT, '${model.id_post}','${model.id_user}', CURTIME(),'${model.comentario}', curDate())`;
 }
 
 const toReadAll = () => {
@@ -7,7 +7,7 @@ const toReadAll = () => {
 }
 
 const toReadIdComent = (model) => {
-    return `SELECT * FROM vw_coment  WHERE id_coment =  '${model.id_coment}'`;
+    return `SELECT * FROM vw_coment  WHERE id_coment =  '${model.id_coment}' OR id_post =  '${model.id_post}'`;
 }
 
 

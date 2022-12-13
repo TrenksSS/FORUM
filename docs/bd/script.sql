@@ -18,6 +18,7 @@ create table post(
     id integer  auto_increment not null primary key,
     id_user integer,
     titulo_post varchar(100) not null,
+    h_postado time not null,
     data_post date not null,
     tipo_post varchar(50) not null,
     curtida integer,
@@ -28,6 +29,7 @@ create table comentarios (
     id integer  auto_increment not null primary key,
     id_post integer not null,
     id_user integer not null,
+    h_comentado time not null,
     comentario varchar(800) not null,
     data_coment date not null,
     foreign key (id_user) references users(id) on delete cascade,
@@ -39,6 +41,7 @@ create table respostas(
     id_resp integer auto_increment not null primary key,
     id_coment integer not null,
     id_users integer not null,
+    h_respondido time not null,
     comentario varchar(800) not null,
     data_coment datetime not null,
     foreign key (id_coment) references comentarios(id) on delete cascade,
@@ -47,30 +50,30 @@ create table respostas(
 
 
 
-insert into users values(default,'Juliana', 'jujubinha','julianaSato@hotmail.com','2002-11-10', 'plocploc','User',"https://img.elo7.com.br/product/zoom/3E26D20/desenho-personalizado-para-perfil-desenho-personalizado.jpg");
-insert into users values(default,'O.O', 'OO','Uepa@gmail.com','2002-11-10', '1234','admin',"https://4maos.com.br/wp-content/uploads/2022/06/dd4119682cc07831e8a39ae2d157f906.jpg");
+insert into users values(default,'Juliana', 'jujubinha','julianaSato@hotmail.com','2002-11-10', 'plocploc','User',"jujuba.png");
+insert into users values(default,'O.O', 'OO','Uepa@gmail.com','2002-11-10', '1234','admin',"sailor.jpg");
 
-insert into post values(default,1, 'Esse carro é PIKA ', DATE_SUB(curdate(),INTERVAL 3 DAY), 'Carro',33,'https://pbs.twimg.com/media/DCmgkOdXUAAsO_N?format=jpg&name=360x360');
-insert into post values(default,2, 'Esse carro é do pikasso ', DATE_SUB(curdate(),INTERVAL 1 DAY), 'Carro',300,'https://pbs.twimg.com/media/DCmgkOdXUAAsO_N?format=jpg&name=360x360');
+insert into post values(default,1, 'Esse carro é PIKA ','09:00', DATE_SUB(curdate(),INTERVAL 3 DAY), 'Carro',33,'https://pbs.twimg.com/media/DCmgkOdXUAAsO_N?format=jpg&name=360x360');
+insert into post values(default,2, 'Esse carro é do pikasso','09:30', DATE_SUB(curdate(),INTERVAL 1 DAY), 'Carro',300,'https://pbs.twimg.com/media/DCmgkOdXUAAsO_N?format=jpg&name=360x360');
 
 
 
-insert into comentarios values(default, 1,1,"OPA",curDate());
-insert into respostas values(default,1,1,"TESTE", curDate());
+insert into comentarios values(default, 1,1,CURTIME() ,"OPA",curDate());
+insert into respostas values(default,1,1,CURTIME() ,"TESTE", curDate());
 
 -- create view vw_adm as 
 -- select 
 
 create view vw_coment as
-select p.id as id_post,c.id as id_coment,u.id as id_user,u.nickname, c.comentario,c.data_coment from users u
+select p.id as id_post,c.id as id_coment,u.id as id_user,u.nickname, c.comentario,c.data_coment, c.h_comentado from users u
 inner join comentarios c on  c.id_user = u.id
 inner join post p on p.id = c.id_post;
 
 create view vw_status as
-select  u.id as id_user, u.nickname,u.email, u.role_stats, u.senha, u.avatar from users u ;
+select  u.id as id_user, u.nickname,u.email, u.role_stats, u.senha, u.avatar,u.data_nasci, u.nome_user from users u ;
 
 create view vw_posts as
-select  p.id as id_post, p.tipo_post, p.titulo_post, p.data_post, p.id_user, p.img, p.curtida, u.nickname,u.email,u.avatar from post p 
+select  p.id as id_post, p.tipo_post, p.titulo_post, p.data_post,p.h_postado, p.id_user, p.img, p.curtida, u.nickname,u.email,u.avatar from post p 
 inner join users u on  u.id = p.id_user;
 
 

@@ -29,7 +29,11 @@ const login = (req, res) => {
                     "nickname": result[0].nickname,
                     "email": result[0].email, 
                     "role_stats": result[0].role_stats,
-                    "avatar": result[0].avatar
+                    "avatar": result[0].avatar,
+                    "data_nasci": result[0].data_nasci,
+                    "nome_user": result[0].nome_user,
+
+
                 }
                 jwt.sign(retorno, process.env.KEY, (err, token) => {
                     if(err == null) {

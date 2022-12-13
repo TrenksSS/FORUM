@@ -238,9 +238,17 @@ nav {}
 
 #nick-user {}
 
+.divide1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
 #time {
-    width: 250px;
-    margin-left: 70%;
+    display: block;
+    width: 120px;
+    margin-left: 60%;
     color: var(--cor5);
 }
 
@@ -260,11 +268,13 @@ nav {}
 
 #img-p {
     margin-top: 3%;
-    max-width: 500px;
+    max-width: 700px;
+    border-radius: 15px;
+    box-shadow: 1px 2px 2px 2px black;
 }
 
 #comentario-user {
-    width: 700px;
+    width: 100vw;
 }
 
 #plus {
@@ -306,9 +316,14 @@ nav {}
     margin: 10px;
 }
 #r-time{
-    margin-left: 28vw;
+    margin-left: 2vw;
     color: var(--cor5);
 }
+#r-date{
+        margin-left: 24vw;
+        color: var(--cor5);
+}
+
 #resp{
     
 }
