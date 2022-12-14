@@ -41,9 +41,9 @@ create table respostas(
     id_resp integer auto_increment not null primary key,
     id_coment integer not null,
     id_users integer not null,
-    h_respondido time not null,
+    h_resp time not null,
     comentario varchar(800) not null,
-    data_coment datetime not null,
+    data_resp datetime not null,
     foreign key (id_coment) references comentarios(id) on delete cascade,
     foreign key (id_users) references users(id) on delete cascade
 );
