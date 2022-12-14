@@ -316,37 +316,7 @@ nav {}
 }
 
 /* -----------------------------------------respostas */
-.respostas{
-    border-top: 1px solid;  
-    display: flex;
-    flex-direction: column;
-}
 
-.r-info{
-    display: flex;
-    align-items: center;
-}
-
-#r-user{
-    width: 70px;
-    margin: 10px;
-}
-#r-time{
-    margin-left: 2vw;
-    color: var(--cor5);
-}
-#r-date{
-        margin-left: 5vw;
-        color: var(--cor5);
-}
-
-#resp{
-    
-}
-#c-resp{
-    width: 700px;
-    margin: 20px;
-}
 /* ------------------------------------------------------------- */
 
 
@@ -544,3 +514,49 @@ nav {}
     border-radius: 5px;
     cursor: pointer;
   }
+
+
+
+  /* --------------------------- respostas */
+
+  .resp{
+    justify-content: center;
+    align-items: center;
+    display: none;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    z-index: 3;
+    background-color: var(--cor4);
+  }
+  .resp-cont{
+    width: 60vw;
+    height: 60vh;
+    display: flex;
+    background-color: white;
+  }
+.r-info{
+    /* display: flex;
+    align-items: center; */
+}
+
+#r-user{
+    /* width: 70px;
+    margin: 10px; */
+}
+#r-time{
+    /* margin-left: 2vw;
+    color: var(--cor5); */
+}
+#r-date{
+        /* margin-left: 5vw;
+        color: var(--cor5); */
+}
+
+#resp{
+    
+}
+#c-resp{
+    /* width: 700px;
+    margin: 20px; */
+}
