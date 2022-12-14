@@ -81,6 +81,14 @@ function ncancel2(){
 function denun(){
     deni.style = "display:flex"
 }
+function ainfo(){
+    let inf = document.querySelector(".modal-user-info")
+    inf.style =  "display:flex"
+}
+function finfo(){
+    let inf = document.querySelector(".modal-user-info")
+    inf.style =  "display:none"
+}
 const corpoComent = document.querySelector(".respostas");
 
 function comentarios(id){

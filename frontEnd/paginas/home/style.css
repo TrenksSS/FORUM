@@ -76,6 +76,7 @@ header {
     margin-top: -10%;
     width: 60px;
     border-radius: 50px;
+    cursor: pointer;
 }
 .cab-post{
 }
@@ -506,4 +507,40 @@ nav {}
 
   .model{
     display: none;
+  }
+
+  .modal-user-info{
+    display: none;
+    position: absolute;
+    width: 15vw;
+    height: 60vh;
+    background-color: var(--cor1);
+    left: 84vw;
+    bottom: 31vh;
+    z-index: 1;
+    border-radius: 10px;
+  }
+  .btns-info{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    bottom: 3vh;
+    left: 5vw;
+  }
+  #btn-euser{
+    width: 100px;
+    height: 20px;
+    background-color: red;
+    border: 0;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  #btn-sair{
+    margin-top: 10px;
+    width: 100px;
+    height: 20px;
+    background-color: var(--cor3);
+    border: 0;
+    border-radius: 5px;
+    cursor: pointer;
   }
