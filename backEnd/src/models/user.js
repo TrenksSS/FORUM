@@ -19,7 +19,7 @@ const toDeleteUsers = (model) => {
 }
 
 const toUpdateUsers = (model)=>{
-    return `UPDATE users SET nome_user = '${model.nome_user}', nickname = '${model.nickname}', email = '${model.email}', data_nasci = '${model.data_nasci}',senha = '${model.senha}', avatar = '${model.avatar}' WHERE id = ${model.id}`;
+    return `UPDATE users SET nome_user = '${model.nome_user}', nickname = '${model.nickname}', email = '${model.email}', data_nasci = '${model.data_nasci}', avatar = '${model.avatar}' WHERE id = ${model.id}`;
     }
 
     

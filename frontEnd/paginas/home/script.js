@@ -7,13 +7,32 @@ var resp = document.querySelector(".respostas")
 
 const username = document.querySelector("#user-nick")
 const imguser = document.querySelector("#user-img")
-// const id_user = document.querySelector("#user-id")
+
+
+
+
+
 
 
 var userinfo = JSON.parse(localStorage.getItem("usuario"))
 username.innerHTML = userinfo.userName
 imguser.src = "../../../assets/repositorio/" + userinfo.img
  const id_user = userinfo.id
+ console.log(id_user.value)
+
+ const dtnasci = document.querySelector("#dtEdit")
+ const email = document.querySelector("#emailEdit")
+ const nick = document.querySelector("#nickEdit")
+ const nome = document.querySelector("#nomeEdit")
+
+ nick.value =  userinfo.userName
+ email.value =  userinfo.email
+ dtnasci.value =  userinfo.nascimento
+ nome.value =  userinfo.nome
+
+
+
+
 
 
 // ------------------variaveis dos hader-----------------
@@ -91,34 +110,7 @@ function finfo(){
 }
 const corpoComent = document.querySelector(".respostas");
 
-function comentarios(id){
-    const body = {
-        "id_post":id
-        }
-        const options = {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(body)
-
-        };
-        fetch("http://localhost:4500/vw_coment/id", options)
-            .then(res => { return res.json() })
-            .then(coments => {
-                coments.forEach(coment => {
-                let comentario =  document.querySelector(".r-info").cloneNode(true)
-                let resp =  document.querySelector("#resp").cloneNode(true)
-
-                comentario.classList.remove('model')
-                comentario.querySelector("#r-user").src =  "../../../assets/repositorio/" + coment.avatar;
-                comentario.querySelector("#r-nick").innerHTML = coment.nickname;
-                comentario.querySelector("#r-time").innerHTML = coment.h_comentado;
-                comentario.querySelector("#r-date").innerHTML = coment.data_coment;
-                resp.querySelector("#c-resp").innerHTML = coment.comentario;
-                console.log(resp)
-                corpoComent.appendChild(comentario)
-                corpoComent.appendChild(resp)
-                 })
-            })
+function comentarios(){
 
     // if(resp.style.display == "none"){
     //     resp.style.display = "flex"
@@ -132,6 +124,7 @@ function postar(){
     let data = {}
 
     let body = {
+        "id_user":id_user,
         "titulo_post": document.querySelector("#novo_post").value,
         "tipo_post": document.querySelector("#cc").value,
         "img": document.querySelector("#nova-img").value
@@ -141,7 +134,7 @@ function postar(){
         headers: { 'Content-Type': 'application/json' },
     };
     options.body = JSON.stringify(body)
-    if (body.titulo_post.length > 0 && body.tipo_post.length > 0 && body.img.length > 0) {
+    if (body.titulo_post.length > 0 && body.tipo_post.length > 0) {
         fetch(uri, options)
             .then(resp => resp.status)
             .then(data => {
@@ -175,11 +168,71 @@ function mostrar(){
             novoPost.querySelector("#date").innerHTML = post.h_postado.slice(0, 5);
             novoPost.querySelector("#time").innerHTML = post.data_post.slice(0, 10);
             novoPost.querySelector("#btnEx").addEventListener("click", () => { remover(post.id_post); })
-            novoPost.querySelector("#btnComent").addEventListener("click", () => { comentarios(post.id_post); })
             corpo.appendChild(novoPost)
         })
-        corpo.appendChild(comentarios())
+       
     })
+}
+
+
+
+function update(){
+    const arquivo = document.querySelector("#fotoEdit");
+    //Monta o corpo da requisição
+    const body = {
+        "id":id_user,
+        "nome_user":nome.value,
+        "nickname":nick.value,
+        "email":email.value,
+        "data_nasci":dtnasci.value
+    }
+    if (arquivo.files.length > 0) {
+        body.avatar = arquivo.files[0].name;
+        enviarArquivo(arquivo);
+    } else {
+        body.avatar = 'jujuba.png';
+    }
+    const options = {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' }
+    };
+    options.body = JSON.stringify(body);
+    fetch("http://localhost:4500/users/update", options)
+        .then(resp => resp.status)
+        .then(resp => {
+            if (resp == 200) {
+
+                alert("Usuario Editado 😀 ✔, Faça Login Novamente!")
+                window.location.href = "../login/index.html"
+
+            } else {
+                alert("Erro ao enviar dados 🙁❌: " + resp)
+            }
+        })
+        .catch(err => {
+            alert("❌ Erro ao enviar dados. Erro:" + err)
+
+
+        });
+}
+               
+
+function enviarArquivo(arq) {
+    const data = new FormData();
+    data.append("img", arq.files[0]);
+    const options = {
+        method: 'POST'
+    };
+    options.body = data;
+    fetch('http://localhost:4500/arquivos', options)
+        .then(resp => resp.status)
+        .then(resp => {
+            if (resp != 200)
+
+                alert("❌ Erro ao enviar imagem, Código HTTP:" + resp);
+        })
+
+        .catch(err => console.error(err));
 }
 
 

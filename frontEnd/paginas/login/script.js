@@ -59,7 +59,7 @@ function cadastrar() {
             body.avatar = arquivo.files[0].name;
             enviarArquivo(arquivo);
         } else {
-            body.avatar = 'default.png';
+            body.avatar = 'jujuba.png';
         }
         const options = {
             method: 'POST',
@@ -70,8 +70,9 @@ function cadastrar() {
             .then(resp => resp.status)
             .then(resp => {
                 if (resp == 201) {
-                    alert("Usuario cadastrado 😀, faça login ✔")
                     window.location.reload()
+
+                    alert("Usuario cadastrado 😀, faça login ✔")
                 } else {
                     alert("Erro ao enviar dados 🙁: " + resp)
                 }
@@ -111,7 +112,6 @@ const login = () => {
         if(info[0] =! undefined) {
             console.log(info);
             localStorage.setItem('usuario',JSON.stringify({"nome":info.nome_user,"nascimento":info.data_nasci,"id":info.id, "userName":info.nickname, "email":info.email,"rola":info.role_stats, "img":info.avatar}));
-            console.log(localStorage);
             window.location.href = "../home/index.html"
         } else {
             alert(' ❌ Erro no Login, usuário ou  senha incorreta!');

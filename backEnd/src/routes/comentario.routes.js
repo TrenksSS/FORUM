@@ -5,7 +5,7 @@ const RotaComentarios = require("../controllers/comentsController");
 
 router.post("/comentarios/create", RotaComentarios.criarComent);
 router.get("/vw_coment", RotaComentarios.listarComent);
-router.post("/vw_coment/id", RotaComentarios.listarIdComent);
+router.get("/vw_coment/id/:id_post", RotaComentarios.listarIdComent);
 router.delete("/comentarios/delete", RotaComentarios.excluirComent);
 router.put("/comentarios/update", RotaComentarios.editarComent);
 

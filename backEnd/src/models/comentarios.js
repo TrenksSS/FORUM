@@ -7,7 +7,7 @@ const toReadAll = () => {
 }
 
 const toReadIdComent = (model) => {
-    return `SELECT * FROM vw_coment  WHERE id_coment =  '${model.id_coment}' OR id_post =  '${model.id_post}'`;
+    return `SELECT * FROM vw_coment  WHERE  id_post =  '${model.id_post}'`;
 }
 
 

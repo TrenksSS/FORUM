@@ -23,7 +23,7 @@ const listarComent = (req, res) => {
 }
 
 const listarIdComent = (req, res) => {
-    conDB.query(Coment.toReadIdComent(req.body), (err, result) => {
+    conDB.query(Coment.toReadIdComent(req.params), (err, result) => {
         if (err == null)
             if (result.length > 0)
                 res.json(result).end();

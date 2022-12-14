@@ -39,7 +39,8 @@
         </div>
         <div class="user-info">
             <p id="user-nick">Nome</p>
-            <img id="user-img" onclick="ainfo()" src="../../../assets/user.png" alt="">
+            <a href="#"> <img id="user-img" onclick="ainfo()" src="../../../assets/user.png" alt=""></a>
+           
         </div>
         <div class="cab-post">
             <a href="#"> <button onmouseover="newpost()" onmouseout="newp()" onclick="Np()" id="novo-post">+</button></a>
@@ -48,10 +49,21 @@
     </header>
 
     <div class="modal-user-info">
-        <div>
-
+        <div class="Edit">
+            <h3>Edit as Suas informações:</h3>
+                <p class="pedit">Nome: </p>
+                <input class="inputsEdit" id="nomeEdit" type="text">
+                <p class="pedit">NickName: </p>
+                <input class="inputsEdit" id="nickEdit" type="text">
+                <p class="pedit">Email: </p>
+                <input  class="inputsEdit" id="emailEdit" type="text">
+                <p class="pedit">Data Nascimento</p>
+                <input class="inputsEdit" id="dtEdit" type="text">
+                <p class="pedit">Avatar</p>
+                <input type="file" class="inputsEdit" id="fotoEdit" name="foto"  />
         </div>
         <div class="btns-info">
+            <button id="btn-envia" onclick="update()" >Editar</button>
             <button id="btn-euser">Excluir conta</button>
             <button id="btn-sair" onclick="finfo()">Fechar</button>
         </div>
