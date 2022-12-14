@@ -65,7 +65,7 @@ insert into respostas values(default,1,1,CURTIME() ,"TESTE", curDate());
 -- select 
 
 create view vw_coment as
-select p.id as id_post,c.id as id_coment,u.id as id_user,u.nickname, c.comentario,c.data_coment, c.h_comentado from users u
+select p.id as id_post,c.id as id_coment,u.id as id_user,u.nickname,u.avatar, c.comentario,c.data_coment, c.h_comentado from users u
 inner join comentarios c on  c.id_user = u.id
 inner join post p on p.id = c.id_post;
 

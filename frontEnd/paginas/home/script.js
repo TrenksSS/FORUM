@@ -21,7 +21,7 @@ var hnick = document.querySelector("#uner-nick")
 var himg = document.querySelector("#user-img")
 // -------------------------------------------------------
 
-// ------------------variaveis dos posts-----------------
+// ------------------variaveis dos coments-----------------
 var contpost = document.querySelector(".cont")
 var post = document.querySelector(".post")
 
@@ -81,12 +81,42 @@ function ncancel2(){
 function denun(){
     deni.style = "display:flex"
 }
-function comentarios(){
-    if(resp.style.display == "none"){
-        resp.style.display = "flex"
-    }else{
-        resp.style.display = "none"
-    }
+const corpoComent = document.querySelector(".respostas");
+
+function comentarios(id){
+    const body = {
+        "id_post":id
+        }
+        const options = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(body)
+
+        };
+        fetch("http://localhost:4500/vw_coment/id", options)
+            .then(res => { return res.json() })
+            .then(coments => {
+                coments.forEach(coment => {
+                let comentario =  document.querySelector(".r-info").cloneNode(true)
+                let resp =  document.querySelector("#resp").cloneNode(true)
+
+                comentario.classList.remove('model')
+                comentario.querySelector("#r-user").src =  "../../../assets/repositorio/" + coment.avatar;
+                comentario.querySelector("#r-nick").innerHTML = coment.nickname;
+                comentario.querySelector("#r-time").innerHTML = coment.h_comentado;
+                comentario.querySelector("#r-date").innerHTML = coment.data_coment;
+                resp.querySelector("#c-resp").innerHTML = coment.comentario;
+                console.log(resp)
+                corpoComent.appendChild(comentario)
+                corpoComent.appendChild(resp)
+                 })
+            })
+
+    // if(resp.style.display == "none"){
+    //     resp.style.display = "flex"
+    // }else{
+    //     resp.style.display = "none"
+    // }
 }
 
 
@@ -112,7 +142,6 @@ function postar(){
                     window.location.reload()
                 } else {
                     alert("Erro ao enviar Post 🙁")
-                    window.location.reload()
                 }
             })
             .catch(err => alert("❌ Erro ao enviar dados. Erro:" + err));
@@ -122,29 +151,31 @@ function postar(){
 }
  
 const corpo = document.querySelector(".cont");
-
-fetch("http://localhost:4500/post/read")
-.then(res => { return res.json() })
-.then(posts => {
-    posts.forEach(post => {
-
-
-        let novoPost =  document.querySelector(".post").cloneNode(true)
-        novoPost.classList.remove('model')
-        novoPost.querySelector("#img-p").src = post.img;
-        novoPost.querySelector("#comentario-user").innerHTML = post.titulo_post;
-        novoPost.querySelector("#nick-user").innerHTML = post.nickname;
-        novoPost.querySelector("#like-n").innerHTML = post.curtida;
-        novoPost.querySelector("#post-user-img").src = "../../../assets/repositorio/" + post.avatar;
-        novoPost.querySelector("#date").innerHTML = post.h_postado.slice(0, 5);
-        novoPost.querySelector("#time").innerHTML = post.data_post.slice(0, 10);
-        novoPost.querySelector("#btnEx").addEventListener("click", () => { remover(post.id_post, post); })
-
-        corpo.appendChild(novoPost)
+function mostrar(){
+    fetch("http://localhost:4500/post/read")
+    .then(res => { return res.json() })
+    .then(coments => {
+        coments.forEach(post => {
+    
+            let novoPost =  document.querySelector(".post").cloneNode(true)
+            novoPost.classList.remove('model')
+            novoPost.querySelector("#img-p").src = post.img;
+            novoPost.querySelector("#comentario-user").innerHTML = post.titulo_post;
+            novoPost.querySelector("#nick-user").innerHTML = post.nickname;
+            novoPost.querySelector("#like-n").innerHTML = post.curtida;
+            novoPost.querySelector("#post-user-img").src = "../../../assets/repositorio/" + post.avatar;
+            novoPost.querySelector("#date").innerHTML = post.h_postado.slice(0, 5);
+            novoPost.querySelector("#time").innerHTML = post.data_post.slice(0, 10);
+            novoPost.querySelector("#btnEx").addEventListener("click", () => { remover(post.id_post); })
+            novoPost.querySelector("#btnComent").addEventListener("click", () => { comentarios(post.id_post); })
+            corpo.appendChild(novoPost)
+        })
+        corpo.appendChild(comentarios())
     })
-})
+}
 
-function remover(id, post) {
+
+function remover(id) {
     fetch("http://localhost:4500/post/delete/" + id, {
         "method": "DELETE"
     })

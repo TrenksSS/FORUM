@@ -47,6 +47,12 @@ header {
     margin-left: 40%;
     width: 30px;
 }
+
+#btnComent{
+    background-color: transparent;
+    border: none;
+}
+
 #btnEx{
     background:transparent;
     border: none;
@@ -311,17 +317,17 @@ nav {}
 /* -----------------------------------------respostas */
 .respostas{
     border-top: 1px solid;  
-    display: none;
+    display: flex;
     flex-direction: column;
 }
 
-#r-info{
+.r-info{
     display: flex;
     align-items: center;
 }
 
 #r-user{
-    width: 35px;
+    width: 70px;
     margin: 10px;
 }
 #r-time{
@@ -329,7 +335,7 @@ nav {}
     color: var(--cor5);
 }
 #r-date{
-        margin-left: 24vw;
+        margin-left: 5vw;
         color: var(--cor5);
 }
 

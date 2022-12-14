@@ -10,7 +10,7 @@
     <title>Hot Wilson</title>
 </head>
 
-<body>
+<body onload="mostrar()">
 
     <header>
         <div class="cab-info">
@@ -103,16 +103,17 @@
                         <p id="like-n" type="number">5</p>
                     </div>
                     <div id="info-resp">
-                        <img id="img-rep" onclick="comentarios()" src="../../../assets/comente.png" alt="">
+                        <button id="btnComent"><img id="img-rep"  src="../../../assets/comente.png" alt=""></button>
+                        
                         <p id="resp-number" type="number"></p>
                     </div>
                 </div>
                 <div class="respostas">
-                    <div id="r-info">
+                    <div class="r-info ">
                         <img id="r-user" src="../../../assets/user.png" alt="">
                         <p id="r-nick">Nick name</p>
                         <p id="r-time">22:13</p>
-                        <p id="r-time">22:13</p>
+                        <p id="r-date">22:13</p>
                     </div>
                     <div id="resp">
                     <p id="c-resp">
